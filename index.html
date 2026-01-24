@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of a passionate developer specializing in game development and interactive experiences. Applying to DreamGames, Peak Games, and Codeway.">
+  <meta name="keywords" content="developer, portfolio, game development, internship, DreamGames, Peak Games, Codeway">
+  <title>Developer Portfolio | Game-Inspired Interactive Experience</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="/src/styles/main.css">
+</head>
+<body>
+  <!-- Progress Bar -->
+  <div class="progress-bar" id="progressBar">
+    <div class="progress-bar__fill"></div>
+    <div class="progress-bar__xp">
+      <span class="progress-bar__xp-text">XP: <span id="xpValue">0</span></span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="header__container">
+      <a href="#" class="header__logo">
+        <span class="header__logo-text">Portfolio</span>
+        <span class="header__logo-cursor">_</span>
+      </a>
+      
+      <nav class="header__nav" id="mainNav">
+        <ul class="header__nav-list">
+          <li><a href="#about" class="header__nav-link" data-section="about">About</a></li>
+          <li><a href="#skills" class="header__nav-link" data-section="skills">Skills</a></li>
+          <li><a href="#projects" class="header__nav-link" data-section="projects">Projects</a></li>
+          <li><a href="#contact" class="header__nav-link" data-section="contact">Contact</a></li>
+        </ul>
+      </nav>
+      
+      <div class="header__actions">
+        <button class="header__achievements-btn" id="achievementsBtn" aria-label="View achievements">
+          <span class="header__achievements-icon">🏆</span>
+          <span class="header__achievements-count" id="achievementsCount">0/8</span>
+        </button>
+        
+        <button class="header__menu-btn" id="menuBtn" aria-label="Toggle menu">
+          <span class="header__menu-line"></span>
+          <span class="header__menu-line"></span>
+          <span class="header__menu-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-menu__nav">
+      <a href="#about" class="mobile-menu__link" data-section="about">About</a>
+      <a href="#skills" class="mobile-menu__link" data-section="skills">Skills</a>
+      <a href="#projects" class="mobile-menu__link" data-section="projects">Projects</a>
+      <a href="#contact" class="mobile-menu__link" data-section="contact">Contact</a>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main">
+    <!-- Hero / About Section -->
+    <section class="hero" id="about">
+      <div class="hero__container">
+        <div class="hero__content">
+          <div class="hero__badge">
+            <span class="hero__badge-dot"></span>
+            <span class="hero__badge-text">Available for Internship</span>
+          </div>
+          
+          <h1 class="hero__title">
+            <span class="hero__title-line">Hi, I'm</span>
+            <span class="hero__title-name" id="heroName">Deniz Meral</span>
+          </h1>
+          
+          <p class="hero__subtitle">
+            Passionate about creating <span class="hero__highlight">interactive experiences</span> 
+            and <span class="hero__highlight">games</span> that people love.
+          </p>
+          
+          <p class="hero__description">
+            I build engaging digital experiences with clean code and creative problem-solving. 
+            I'm currently enrolled in <span class="hero__highlight">Control and Automation Engineering</span> program at <span class="hero__highlight">Istanbul Technical University</span>.
+          </p>
+          
+          <div class="hero__cta">
+            <a href="#projects" class="btn btn--primary">
+              <span>View Projects</span>
+              <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+            <a href="#contact" class="btn btn--secondary">
+              <span>Get in Touch</span>
+            </a>
+          </div>
+        </div>
+        
+        <div class="hero__visual">
+          <div class="hero__avatar">
+            <div class="hero__avatar-ring"></div>
+            <div class="hero__avatar-inner">
+              <img src="/images/profile.png" alt="Deniz Meral" class="hero__avatar-image">
+            </div>
+          </div>
+          <div class="hero__particles" id="heroParticles"></div>
+        </div>
+      </div>
+      
+      <div class="hero__scroll-hint">
+        <span>Scroll to explore</span>
+        <div class="hero__scroll-arrow"></div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+      <div class="skills__container">
+        <div class="section-header">
+          <span class="section-header__label">What I Work With</span>
+          <h2 class="section-header__title">Skills & Technologies</h2>
+          <p class="section-header__description">
+            My toolkit for building experiences
+          </p>
+        </div>
+        
+        <div class="skills__grid" id="skillsGrid">
+          <!-- Skills will be dynamically inserted -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+      <div class="projects__container">
+        <div class="section-header">
+          <span class="section-header__label">My Work</span>
+          <h2 class="section-header__title">Featured Projects</h2>
+          <p class="section-header__description">
+            A selection of projects
+          </p>
+        </div>
+        
+        <div class="projects__grid" id="projectsGrid">
+          <!-- Projects will be dynamically inserted -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <div class="contact__container">
+        <div class="section-header">
+          <span class="section-header__label">Get In Touch</span>
+          <h2 class="section-header__title">Let's Work Together</h2>
+          <p class="section-header__description">
+            I'm currently looking for internship opportunities
+          </p>
+        </div>
+        
+        <div class="contact__content">
+          <form class="contact__form" id="contactForm">
+            <div class="form-group">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" id="name" name="name" class="form-input" placeholder="Your name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message" class="form-label">Message</label>
+              <textarea id="message" name="message" class="form-input form-input--textarea" placeholder="Your message..." rows="5" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn--primary btn--full">
+              <span>Send Message</span>
+              <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+              </svg>
+            </button>
+          </form>
+          
+          <div class="contact__info">
+            <div class="contact__info-card">
+              <h3 class="contact__info-title">Connect With Me</h3>
+              <p class="contact__info-text">
+                Feel free to reach out through any of these platforms
+              </p>
+              
+              <div class="contact__socials">
+                <a href="https://github.com/DennyEZ" target="_blank" rel="noopener noreferrer" class="contact__social-link" data-social="github">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
+                  <span>GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/denizmeral/" target="_blank" rel="noopener noreferrer" class="contact__social-link" data-social="linkedin">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
+                  <span>LinkedIn</span>
+                </a>
+                <a href="mailto:deniztunameral@gmail.com" class="contact__social-link" data-social="email">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                  </svg>
+                  <span>Email</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__content">
+        <div class="footer__social">
+          <a href="https://github.com/DennyEZ" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="GitHub">
+            <svg class="footer__social-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/denizmeral/" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="LinkedIn">
+            <svg class="footer__social-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+          <a href="mailto:deniztunameral@gmail.com" class="footer__social-link" aria-label="Email">
+            <svg class="footer__social-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
+            </svg>
+          </a>
+        </div>
+        <p class="footer__copyright">
+          © <span id="currentYear">2026</span> — Built with 
+          <span class="footer__emoji" id="coffeeEmoji" data-clicks="0">☕</span> 
+          and 
+          <span class="footer__emoji">🎮</span>
+        </p>
+        <p class="footer__hint">
+          <span class="footer__hint-text">Hint: Try the Konami code</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Achievement Toast Container -->
+  <div class="achievement-toast-container" id="achievementToasts"></div>
+
+  <!-- Achievement Panel Modal -->
+  <div class="achievement-panel" id="achievementPanel">
+    <div class="achievement-panel__overlay"></div>
+    <div class="achievement-panel__content">
+      <div class="achievement-panel__header">
+        <h2 class="achievement-panel__title">🏆 Achievements</h2>
+        <button class="achievement-panel__close" id="achievementPanelClose">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="achievement-panel__grid" id="achievementPanelGrid">
+        <!-- Achievements will be dynamically inserted -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Match-3 Game Modal -->
+  <div class="game-modal" id="gameModal">
+    <div class="game-modal__overlay"></div>
+    <div class="game-modal__content">
+      <div class="game-modal__header">
+        <h2 class="game-modal__title">🎮 Skill Match</h2>
+        <div class="game-modal__score">
+          Score: <span id="gameScore">0</span> / <span id="gameTarget">100</span>
+        </div>
+        <button class="game-modal__close" id="gameClose">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="game-modal__board" id="gameBoard">
+        <!-- Game tiles will be dynamically inserted -->
+      </div>
+      <div class="game-modal__footer">
+        <button class="btn btn--secondary" id="gameReset">Reset</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

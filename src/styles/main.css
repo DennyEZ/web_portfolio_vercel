@@ -1,0 +1,8 @@
+/* Main CSS - Import all styles */
+
+@import './variables.css';
+@import './base.css';
+@import './components.css';
+@import './header.css';
+@import './sections.css';
+@import './game.css';
