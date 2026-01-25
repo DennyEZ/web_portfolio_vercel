@@ -2,7 +2,7 @@
 import './styles/main.css';
 import initNavigation from './modules/navigation.js';
 import initAnimations, { initProgressBar } from './modules/animations.js';
-import initAchievements from './modules/achievements.js';
+import initAchievements, { getAchievementSystem } from './modules/achievements.js';
 import initGame from './modules/game.js';
 import initPeekingCharacter from './modules/peekingCharacter.js';
 import skillCategories from './data/skills.js';
@@ -30,6 +30,9 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Handle contact form
   initContactForm();
+  
+  // Handle meta link (portfolio Live Demo easter egg)
+  initMetaLink();
   
   console.log('🎮 Portfolio initialized! Try the Konami code for a surprise...');
 });
@@ -94,7 +97,7 @@ function renderProjects() {
         </div>
         <div class="project-card__links">
           ${project.liveUrl ? `
-            <a href="${project.liveUrl}" target="_blank" rel="noopener" class="project-card__link">
+            <a href="${project.liveUrl}" ${project.id === 'portfolio-website' ? 'data-meta-link="true"' : 'target="_blank" rel="noopener"'} class="project-card__link">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
               </svg>
@@ -172,5 +175,20 @@ function initContactForm() {
       btn.innerHTML = originalText;
       btn.style.background = '';
     }, 3000);
+  });
+}
+
+function initMetaLink() {
+  const metaLink = document.querySelector('[data-meta-link="true"]');
+  if (!metaLink) return;
+  
+  metaLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    
+    // Unlock the "already here" achievement
+    const achievementSystem = getAchievementSystem();
+    if (achievementSystem) {
+      achievementSystem.unlock('already_here');
+    }
   });
 }

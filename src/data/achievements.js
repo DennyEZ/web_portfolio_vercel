@@ -79,6 +79,14 @@ export const achievements = [
     trigger: 'bossDefeated',
     isBossAchievement: true,
     teaser: 'Are you ready?'
+  },
+  {
+    id: 'already_here',
+    name: 'You Are Already Here',
+    description: 'Tried to visit a website... while already on it',
+    icon: '🤦',
+    trigger: 'alreadyHere',
+    hint: 'Sometimes the destination is where you started...'
   }
 ];
 

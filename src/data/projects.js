@@ -13,36 +13,14 @@ export const projects = [
     featured: true
   },
   {
-    id: 'project-2',
-    title: 'Interactive Web App',
-    description: 'A full-stack web application with real-time features and smooth animations. Focus on user experience and performance.',
+    id: 'portfolio-website',
+    title: 'This Portfolio (Yes, Meta)',
+    description: 'A gamified portfolio featuring various mini-games, achievement unlocking, hidden match-3 game (type "play"), Konami code Easter egg, and GSAP scroll animations. Built with vanilla JavaScript and modular architecture to prove I can write clean code without frameworks. Try the Easter eggs for a comprehensive experience. (And don\'t forget to take a peek at achievement tab in the header!)',
     image: null,
-    emoji: '🌐',
-    tags: ['React', 'Node.js', 'MongoDB'],
-    liveUrl: '#',
-    githubUrl: '#',
-    featured: true
-  },
-  {
-    id: 'project-3',
-    title: 'Data Visualization Tool',
-    description: 'Interactive dashboard for visualizing complex datasets with charts, graphs, and filtering capabilities.',
-    image: null,
-    emoji: '📊',
-    tags: ['Python', 'D3.js', 'Flask'],
-    liveUrl: '#',
-    githubUrl: '#',
-    featured: true
-  },
-  {
-    id: 'project-4',
-    title: 'AI/ML Experiment',
-    description: 'Machine learning project exploring game AI and procedural content generation using neural networks.',
-    image: null,
-    emoji: '🤖',
-    tags: ['Python', 'TensorFlow', 'OpenAI'],
-    liveUrl: null,
-    githubUrl: '#',
+    emoji: '🎯',
+    tags: ['Vite', 'Vanilla JavaScript', 'GSAP', 'Game Development', 'CSS'],
+    liveUrl: 'https://deniztm.me',
+    githubUrl: 'https://github.com/DennyEZ/web_portfolio_vercel',
     featured: false
   }
 ];
