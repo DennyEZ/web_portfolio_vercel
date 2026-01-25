@@ -1,5 +1,6 @@
 // Peeking Character Module
 // A fun interactive character that peeks over the footer
+import { getAchievementSystem } from './achievements.js';
 
 const messages = [
   "👋 Hey there!",
@@ -14,9 +15,12 @@ const messages = [
   "🔥 You're on fire!",
 ];
 
+const ANIMATION_DURATION = 600; // ms - must match CSS animation duration
+
 let clickCount = 0;
 let isHidden = false;
 let messageIndex = 0;
+let isOnCooldown = false;
 
 export default function initPeekingCharacter() {
   const character = document.getElementById('peekingCharacter');
@@ -25,8 +29,17 @@ export default function initPeekingCharacter() {
   
   if (!character || !bubble || !textElement) return;
   
+  let bubbleTimeout = null;
+  let resetTimeout = null;
+  
   // Click interaction - cycle through messages
   character.addEventListener('click', () => {
+    // Ignore clicks during cooldown
+    if (isOnCooldown || isHidden) return;
+    
+    // Unlock achievement on first click
+    getAchievementSystem()?.unlock('hello_there');
+    
     clickCount++;
     
     // Update message
@@ -34,31 +47,25 @@ export default function initPeekingCharacter() {
     textElement.textContent = messages[messageIndex];
     
     // Show bubble temporarily
+    clearTimeout(bubbleTimeout);
     bubble.classList.add('footer__peeking-bubble--visible');
     
-    // Wave animation
-    character.classList.remove('footer__peeking--waving');
-    void character.offsetWidth; // Trigger reflow
+    // Start cooldown and wave animation
+    isOnCooldown = true;
     character.classList.add('footer__peeking--waving');
     
-    // Hide bubble after delay
+    // End cooldown and remove animation class after animation completes
     setTimeout(() => {
+      character.classList.remove('footer__peeking--waving');
+      isOnCooldown = false;
+    }, ANIMATION_DURATION);
+    
+    // Hide bubble after delay
+    bubbleTimeout = setTimeout(() => {
       bubble.classList.remove('footer__peeking-bubble--visible');
     }, 2000);
     
-    // Special interaction: hide after 5 rapid clicks
-    if (clickCount >= 5) {
-      hideCharacter();
-      setTimeout(() => {
-        showCharacter();
-        clickCount = 0;
-      }, 3000);
-    }
-  });
-  
-  // Reset click count after inactivity
-  let resetTimeout;
-  character.addEventListener('click', () => {
+    // Reset click count after inactivity
     clearTimeout(resetTimeout);
     resetTimeout = setTimeout(() => {
       clickCount = 0;
@@ -76,7 +83,7 @@ export default function initPeekingCharacter() {
     
     // Check if scrolling fast towards footer
     const footer = document.querySelector('.footer');
-    if (!footer) return;
+    if (!footer || isOnCooldown) return;
     
     const footerTop = footer.getBoundingClientRect().top;
     
@@ -86,34 +93,10 @@ export default function initPeekingCharacter() {
     }
   });
   
-  // Random peek-out when footer becomes visible
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting && !isHidden) {
-        // Show a random greeting after a short delay
-        setTimeout(() => {
-          if (Math.random() > 0.5) {
-            textElement.textContent = messages[Math.floor(Math.random() * messages.length)];
-            bubble.classList.add('footer__peeking-bubble--visible');
-            character.classList.add('footer__peeking--waving');
-            
-            setTimeout(() => {
-              bubble.classList.remove('footer__peeking-bubble--visible');
-              character.classList.remove('footer__peeking--waving');
-            }, 2500);
-          }
-        }, 500);
-      }
-    });
-  }, { threshold: 0.5 });
-  
-  const footer = document.querySelector('.footer');
-  if (footer) {
-    observer.observe(footer);
-  }
-  
   // Double-click to make character hide/show
   character.addEventListener('dblclick', () => {
+    if (isOnCooldown) return;
+    
     if (isHidden) {
       showCharacter();
     } else {
@@ -144,10 +127,12 @@ function showCharacter() {
 
 function scareCharacter() {
   const character = document.getElementById('peekingCharacter');
-  if (character && !character.classList.contains('footer__peeking--scared')) {
+  if (character && !character.classList.contains('footer__peeking--scared') && !isOnCooldown) {
+    isOnCooldown = true;
     character.classList.add('footer__peeking--scared');
     setTimeout(() => {
       character.classList.remove('footer__peeking--scared');
+      isOnCooldown = false;
     }, 500);
   }
 }

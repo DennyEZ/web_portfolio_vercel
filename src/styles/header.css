@@ -283,6 +283,13 @@
   transform: translateY(-53px);
 }
 
+/* Lock position during waving - override hover */
+.footer__peeking.footer__peeking--waving .footer__peeking-head,
+.footer__peeking.footer__peeking--waving:hover .footer__peeking-head {
+  transform: translateY(-53px);
+  transition: none;
+}
+
 .footer__peeking.footer__peeking--scared .footer__peeking-head {
   animation: peekHeadScared 0.5s ease-in-out;
 }
@@ -292,7 +299,7 @@
   transition: transform 0.4s cubic-bezier(0.4, 0, 1, 1);
 }
 
-.footer__peeking.footer__peeking--waving .footer__peeking-head {
+.footer__peeking.footer__peeking--waving .footer__peeking-img--head {
   animation: peekHeadWave 0.6s ease-in-out;
 }
 
@@ -396,10 +403,13 @@
 }
 
 @keyframes peekHeadWave {
-  0%, 100% { transform: translateY(-53px) rotate(0deg); }
-  25% { transform: translateY(-58px) rotate(-5deg); }
-  50% { transform: translateY(-53px) rotate(0deg); }
-  75% { transform: translateY(-58px) rotate(5deg); }
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  15% { transform: rotate(-8deg) scale(1.05); }
+  30% { transform: rotate(6deg) scale(1.02); }
+  45% { transform: rotate(-6deg) scale(1.05); }
+  60% { transform: rotate(4deg) scale(1.02); }
+  75% { transform: rotate(-3deg) scale(1.03); }
+  90% { transform: rotate(2deg) scale(1.01); }
 }
 
 .footer__content {

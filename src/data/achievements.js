@@ -64,6 +64,14 @@ export const achievements = [
     hint: 'First find it, then master it...'
   },
   {
+    id: 'hello_there',
+    name: 'Hello There!',
+    description: 'Said hello to the peeking character',
+    icon: '<img src="/images/peeking-head.png" alt="head" style="width: 48px; height: 48px; object-fit: contain;">',
+    trigger: 'peekClick',
+    hint: 'Someone is watching from the footer...'
+  },
+  {
     id: 'boss_slayer',
     name: 'Bravest of Them All',
     description: 'Defeated the Boss!',
