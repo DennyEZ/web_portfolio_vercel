@@ -4,6 +4,7 @@ import initNavigation from './modules/navigation.js';
 import initAnimations, { initProgressBar } from './modules/animations.js';
 import initAchievements from './modules/achievements.js';
 import initGame from './modules/game.js';
+import initPeekingCharacter from './modules/peekingCharacter.js';
 import skillCategories from './data/skills.js';
 import projects from './data/projects.js';
 
@@ -25,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initProgressBar();
   initAchievements();
   initGame();
+  initPeekingCharacter();
   
   // Handle contact form
   initContactForm();

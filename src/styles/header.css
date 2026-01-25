@@ -237,11 +237,169 @@
   background: var(--bg-primary);
   border-top: 1px solid var(--border-subtle);
   padding: var(--space-8) var(--container-padding);
+  position: relative;
 }
 
+/* Footer overlay to hide the head behind */
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg-primary);
+  z-index: 1;
+}
+
+/* Footer content needs to be above the overlay */
 .footer__container {
-  max-width: var(--container-max);
-  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Peeking Character */
+.footer__peeking {
+  position: absolute;
+  top: 0;
+  left: 20%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 0;
+}
+
+/* Head - animated part (behind footer overlay) */
+.footer__peeking-head {
+  position: relative;
+  z-index: 0;
+  transform: translateY(-45px);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.footer__peeking:hover .footer__peeking-head {
+  transform: translateY(-53px);
+}
+
+.footer__peeking.footer__peeking--scared .footer__peeking-head {
+  animation: peekHeadScared 0.5s ease-in-out;
+}
+
+.footer__peeking.footer__peeking--hidden .footer__peeking-head {
+  transform: translateY(40px);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 1, 1);
+}
+
+.footer__peeking.footer__peeking--waving .footer__peeking-head {
+  animation: peekHeadWave 0.6s ease-in-out;
+}
+
+.footer__peeking.footer__peeking--hidden .footer__peeking-bubble {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+/* Shared image styles */
+.footer__peeking-img {
+  width: 128px;
+  height: auto;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  transition: filter 0.2s ease;
+  display: block;
+}
+
+.footer__peeking:hover .footer__peeking-img {
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4));
+}
+
+/* Head image - behind footer, peeks over the edge */
+.footer__peeking-img--head {
+  position: relative;
+}
+
+/* Hands wrapper - separate stacking context, in front of footer */
+.footer__peeking-hands-wrapper {
+  position: absolute;
+  top: 0;
+  left: 20%;
+  transform: translateX(-50%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Hands image - in front of footer, grips the edge */
+.footer__peeking-img--hands {
+  position: relative;
+  transform: translateY(-80%);
+}
+
+.footer__peeking-bubble {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-visible);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2) var(--space-3);
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  pointer-events: none;
+  margin-bottom: var(--space-2);
+}
+
+.footer__peeking-bubble::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--border-visible);
+}
+
+.footer__peeking-bubble::before {
+  content: '';
+  position: absolute;
+  top: calc(100% - 1px);
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--bg-elevated);
+  z-index: 1;
+}
+
+.footer__peeking:hover .footer__peeking-bubble,
+.footer__peeking-bubble.footer__peeking-bubble--visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.footer__peeking-text {
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  font-weight: var(--font-medium);
+}
+
+/* Head animations - only the head moves, hands stay still */
+@keyframes peekHeadScared {
+  0%, 100% { transform: translateY(-45px); }
+  25% { transform: translateY(5px); }
+  50% { transform: translateY(-30px); }
+  75% { transform: translateY(-45px); }
+}
+
+@keyframes peekHeadWave {
+  0%, 100% { transform: translateY(-53px) rotate(0deg); }
+  25% { transform: translateY(-58px) rotate(-5deg); }
+  50% { transform: translateY(-53px) rotate(0deg); }
+  75% { transform: translateY(-58px) rotate(5deg); }
 }
 
 .footer__content {
