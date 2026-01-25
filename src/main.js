@@ -31,6 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Handle meta link (portfolio Live Demo easter egg)
   initMetaLink();
   
+  // Handle email copy button
+  initEmailCopy();
+  
   console.log('🎮 Portfolio initialized! Try the Konami code for a surprise...');
 });
 
@@ -153,6 +156,33 @@ function initMetaLink() {
     const achievementSystem = getAchievementSystem();
     if (achievementSystem) {
       achievementSystem.unlock('already_here');
+    }
+  });
+}
+
+function initEmailCopy() {
+  const emailBtn = document.getElementById('copyEmailBtn');
+  if (!emailBtn) return;
+  
+  const email = emailBtn.dataset.email;
+  const emailText = emailBtn.querySelector('.contact__email-text');
+  
+  emailBtn.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+      
+      // Show copied feedback
+      const originalText = emailText.textContent;
+      emailText.textContent = 'Copied!';
+      emailBtn.classList.add('copied');
+      
+      setTimeout(() => {
+        emailText.textContent = originalText;
+        emailBtn.classList.remove('copied');
+      }, 2000);
+    } catch (err) {
+      // Fallback: open mailto
+      window.location.href = `mailto:${email}`;
     }
   });
 }

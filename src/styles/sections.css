@@ -523,6 +523,7 @@ section > .hero__container {
   font-size: var(--text-sm);
   font-weight: var(--font-medium);
   transition: all var(--transition-fast);
+  cursor: pointer;
 }
 
 .contact__social-link:hover {
@@ -535,6 +536,41 @@ section > .hero__container {
   width: 20px;
   height: 20px;
   color: var(--text-secondary);
+}
+
+.contact__email-btn {
+  position: relative;
+  min-width: 280px;
+  justify-content: center;
+}
+
+.contact__email-text {
+  color: var(--text-primary);
+  min-width: 180px;
+  text-align: left;
+}
+
+.contact__email-copy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: var(--space-2);
+  padding: var(--space-1);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.contact__email-copy:hover {
+  background: var(--bg-secondary);
+}
+
+.contact__email-copy svg {
+  width: 16px;
+  height: 16px;
+}
+
+.contact__email-btn.copied .contact__email-copy svg {
+  color: var(--accent-success);
 }
 
 .contact__targets {
