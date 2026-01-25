@@ -691,6 +691,840 @@
   color: var(--text-secondary);
 }
 
+/* ==================== Boss Battle Game ==================== */
+.boss-battle {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  min-height: 500px;
+  position: relative;
+}
+
+/* Boss Section */
+.boss-section {
+  text-align: center;
+  padding: var(--space-4);
+  background: linear-gradient(180deg, rgba(239, 68, 68, 0.1) 0%, transparent 100%);
+  border-radius: var(--radius-xl);
+}
+
+.boss-character {
+  position: relative;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.boss-emoji {
+  font-size: 4rem;
+  animation: bossIdle 2s ease-in-out infinite;
+  transition: transform 0.2s ease;
+}
+
+@keyframes bossIdle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Boss phases */
+.boss-phase-2 .boss-emoji {
+  animation: bossAngry 1s ease-in-out infinite;
+}
+
+.boss-phase-3 .boss-emoji {
+  animation: bossFurious 0.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px #ef4444);
+}
+
+@keyframes bossAngry {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-5px) rotate(2deg); }
+}
+
+@keyframes bossFurious {
+  0%, 100% { transform: translateY(0) rotate(-5deg) scale(1.05); }
+  50% { transform: translateY(-3px) rotate(5deg) scale(1.1); }
+}
+
+/* Boss hit reactions */
+.boss-character.hit-small {
+  animation: hitSmall 0.3s ease;
+}
+
+.boss-character.hit-big {
+  animation: hitBig 0.4s ease;
+}
+
+.boss-character.hit-critical {
+  animation: hitCritical 0.5s ease;
+}
+
+@keyframes hitSmall {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+@keyframes hitBig {
+  0%, 100% { transform: translateX(0) scale(1); filter: brightness(1); }
+  50% { transform: translateX(-10px) scale(0.95); filter: brightness(2); }
+}
+
+@keyframes hitCritical {
+  0% { transform: rotate(0) scale(1); filter: brightness(1); }
+  25% { transform: rotate(-15deg) scale(0.9); filter: brightness(3); }
+  50% { transform: rotate(15deg) scale(0.9); filter: brightness(2); }
+  75% { transform: rotate(-10deg) scale(0.95); filter: brightness(1.5); }
+  100% { transform: rotate(0) scale(1); filter: brightness(1); }
+}
+
+/* Boss attacking */
+.boss-character.attacking {
+  animation: bossAttack 0.6s ease;
+}
+
+@keyframes bossAttack {
+  0% { transform: translateY(0) scale(1); }
+  30% { transform: translateY(-30px) scale(1.3); }
+  60% { transform: translateY(20px) scale(1.4); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+/* Boss defeated */
+.boss-character.defeated {
+  animation: bossDefeated 1s ease forwards;
+}
+
+/* Boss dying sequence */
+.boss-character.dying {
+  animation: bossDying 0.4s ease forwards;
+}
+
+/* When dying, override ALL phase animations on the emoji */
+.boss-character.dying .boss-emoji {
+  animation: bossDying 0.4s ease forwards !important;
+  filter: none !important;
+}
+
+@keyframes bossDying {
+  0% { transform: scale(1); filter: brightness(1); }
+  50% { transform: scale(1.3); filter: brightness(3) saturate(0); }
+  100% { transform: scale(1.5); filter: brightness(5) saturate(0); }
+}
+
+/* ==================== EXPLOSION OVERLAY ==================== */
+.explosion-overlay {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 100px;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.explosion-piece {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: var(--size, 1.5rem);
+  transform: translate(-50%, -50%);
+  animation: explosionPiecefly 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: var(--delay, 0s);
+  z-index: 1001;
+  filter: drop-shadow(0 0 5px rgba(255, 200, 0, 0.8));
+}
+
+@keyframes explosionPiecefly {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+    opacity: 1;
+  }
+  15% {
+    transform: translate(-50%, -50%) scale(2) rotate(30deg);
+    opacity: 1;
+  }
+  100% {
+    transform: 
+      translate(
+        calc(-50% + var(--x-move)), 
+        calc(-50% + var(--y-move))
+      ) 
+      scale(0.3) 
+      rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.central-boom {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5rem;
+  animation: centralBoomPulse 0.8s ease-out forwards;
+  z-index: 1002;
+  filter: drop-shadow(0 0 20px rgba(255, 100, 0, 1));
+}
+
+@keyframes centralBoomPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  30% {
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(5);
+    opacity: 0;
+  }
+}
+
+/* Legacy - keep for compatibility */
+.boss-death-explosion {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  z-index: 50;
+  pointer-events: none;
+}
+
+.death-piece {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 2rem;
+  transform: translate(-50%, -50%);
+  animation: deathPieceExplode 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: var(--delay, 0s);
+  z-index: 51;
+  --x-move: 0px;
+  --y-move: 0px;
+}
+
+@keyframes deathPieceExplode {
+  0% {
+    transform: translate(-50%, -50%) scale(1.5) rotate(0deg);
+    opacity: 1;
+  }
+  20% {
+    transform: translate(-50%, -50%) scale(2) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: 
+      translate(
+        calc(-50% + var(--x-move)), 
+        calc(-50% + var(--y-move))
+      ) 
+      scale(0.5) 
+      rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* Death particles container */
+.death-particles {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.death-particle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 1.5rem;
+  animation: deathParticle var(--duration) ease forwards;
+  animation-delay: var(--delay);
+  opacity: 0;
+}
+
+@keyframes deathParticle {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  20% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 1;
+  }
+  100% {
+    transform: 
+      translate(
+        calc(-50% + var(--x)), 
+        calc(-50% + var(--y))
+      ) 
+      rotate(var(--r)) 
+      scale(0);
+    opacity: 0;
+  }
+}
+
+/* Victory flash */
+.boss-battle.victory-flash::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: white;
+  z-index: 200;
+  animation: victoryFlash 0.6s ease forwards;
+  border-radius: var(--radius-xl);
+}
+
+@keyframes victoryFlash {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Victory sparkles */
+.victory-sparkles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.victory-sparkle {
+  position: absolute;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% { 
+    opacity: 0; 
+    transform: scale(0) rotate(0deg); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1) rotate(180deg); 
+  }
+}
+
+@keyframes bossDefeated {
+  0% { transform: rotate(0) scale(1); opacity: 1; }
+  50% { transform: rotate(720deg) scale(0.5); opacity: 0.5; }
+  100% { transform: rotate(1080deg) scale(0); opacity: 0; }
+}
+
+.boss-info {
+  margin-top: var(--space-2);
+}
+
+.boss-name {
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  color: #ef4444;
+  margin-bottom: var(--space-2);
+}
+
+.boss-hp-bar {
+  position: relative;
+  height: 24px;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  border: 2px solid rgba(239, 68, 68, 0.3);
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.boss-hp-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ef4444, #f97316);
+  border-radius: var(--radius-full);
+  transition: width 0.3s ease;
+}
+
+.boss-hp-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  color: white;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+.boss-quote {
+  font-size: var(--text-sm);
+  font-style: italic;
+  color: var(--text-muted);
+  margin-top: var(--space-2);
+}
+
+.boss-turn-warning {
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  padding: var(--space-2) var(--space-4);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-lg);
+  display: inline-block;
+}
+
+.boss-turn-warning.danger {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.2);
+  animation: dangerPulse 0.5s ease infinite;
+}
+
+@keyframes dangerPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Game Grid */
+.boss-grid-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  overflow: hidden; /* Hide tiles spawning from above until they enter */
+}
+
+.boss-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 4px;
+  padding: var(--space-4);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-xl);
+  border: 2px solid var(--border-visible);
+  overflow: hidden; /* Clip dropping tiles to grid boundaries */
+}
+
+.boss-tile {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.boss-tile:hover {
+  transform: scale(1.1);
+  background: var(--bg-elevated);
+}
+
+.boss-tile.selected {
+  transform: scale(1.15);
+  box-shadow: 0 0 15px var(--accent-primary), 0 0 30px var(--accent-primary);
+  animation: tileSelected 0.5s ease infinite;
+}
+
+@keyframes tileSelected {
+  0%, 100% { box-shadow: 0 0 15px var(--accent-primary); }
+  50% { box-shadow: 0 0 25px var(--accent-primary), 0 0 40px var(--accent-primary); }
+}
+
+.boss-tile.popping {
+  animation: tilePop 0.3s ease forwards;
+}
+
+@keyframes tilePop {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.5; }
+  100% { transform: scale(0); opacity: 0; }
+}
+
+/* Dropping animation for existing tiles falling down */
+.boss-tile.dropping {
+  animation: tileDropDown calc(0.15s + var(--drop-distance) * 0.05s) cubic-bezier(0.34, 1.56, 0.64, 1) var(--anim-delay) both;
+}
+
+@keyframes tileDropDown {
+  0% { 
+    transform: translateY(calc(var(--drop-distance) * -52px)); 
+    opacity: 0.8;
+  }
+  60% { 
+    transform: translateY(4px);
+    opacity: 1;
+  }
+  80% { 
+    transform: translateY(-2px); 
+  }
+  100% { 
+    transform: translateY(0); 
+    opacity: 1;
+  }
+}
+
+/* Spawning animation for new tiles coming from above */
+.boss-tile.spawning {
+  animation: tileSpawnDrop calc(0.2s + var(--drop-distance) * 0.04s) cubic-bezier(0.34, 1.56, 0.64, 1) var(--anim-delay) both;
+}
+
+@keyframes tileSpawnDrop {
+  0% { 
+    transform: translateY(calc(var(--drop-distance) * -52px)) scale(0.5); 
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(calc(var(--drop-distance) * -26px)) scale(0.9);
+  }
+  70% { 
+    transform: translateY(6px) scale(1.05);
+  }
+  85% { 
+    transform: translateY(-3px) scale(0.98); 
+  }
+  100% { 
+    transform: translateY(0) scale(1); 
+    opacity: 1;
+  }
+}
+
+/* Combo Display */
+.combo-display {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  font-size: var(--text-3xl);
+  font-weight: var(--font-extrabold);
+  color: #f59e0b;
+  text-shadow: 0 0 20px #f59e0b, 0 2px 4px rgba(0,0,0,0.5);
+  pointer-events: none;
+  opacity: 0;
+  z-index: 10;
+}
+
+.combo-display.active {
+  animation: comboShow 0.8s ease forwards;
+}
+
+.combo-display.pop {
+  animation: comboPop 0.3s ease;
+}
+
+@keyframes comboShow {
+  0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+  20% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+  80% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+}
+
+@keyframes comboPop {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.3); }
+}
+
+/* Player Section */
+.player-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-4);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-xl);
+  transition: all 0.2s ease;
+}
+
+.player-section.hit {
+  animation: playerHit 0.4s ease;
+}
+
+@keyframes playerHit {
+  0%, 100% { background: var(--bg-secondary); transform: translateX(0); }
+  25% { background: rgba(239, 68, 68, 0.3); transform: translateX(-5px); }
+  75% { background: rgba(239, 68, 68, 0.2); transform: translateX(5px); }
+}
+
+.player-hearts {
+  font-size: var(--text-2xl);
+  letter-spacing: 4px;
+}
+
+.damage-dealt {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  font-weight: var(--font-medium);
+}
+
+/* Player hurt flash */
+.boss-battle.player-hurt::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(239, 68, 68, 0.3);
+  pointer-events: none;
+  animation: hurtFlash 0.4s ease forwards;
+  border-radius: var(--radius-xl);
+  z-index: 100;
+}
+
+@keyframes hurtFlash {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Damage Numbers */
+.damage-numbers {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  z-index: 50;
+}
+
+.damage-number {
+  position: absolute;
+  font-size: var(--text-xl);
+  font-weight: var(--font-extrabold);
+  color: #ef4444;
+  animation: damageFloat 1s ease forwards;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.damage-number.big {
+  font-size: var(--text-2xl);
+  color: #f97316;
+}
+
+.damage-number.critical {
+  font-size: var(--text-3xl);
+  color: #fbbf24;
+  text-shadow: 0 0 20px #fbbf24, 0 2px 4px rgba(0,0,0,0.5);
+}
+
+@keyframes damageFloat {
+  0% { transform: translateY(0) scale(0.5); opacity: 0; }
+  20% { transform: translateY(-20px) scale(1.2); opacity: 1; }
+  80% { transform: translateY(-60px) scale(1); opacity: 1; }
+  100% { transform: translateY(-80px) scale(0.8); opacity: 0; }
+}
+
+/* Screen Shake */
+.boss-battle.shake-small {
+  animation: shakeSmall 0.4s ease;
+}
+
+.boss-battle.shake-big {
+  animation: shakeBig 0.4s ease;
+}
+
+@keyframes shakeSmall {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-3px); }
+  40% { transform: translateX(3px); }
+  60% { transform: translateX(-2px); }
+  80% { transform: translateX(2px); }
+}
+
+@keyframes shakeBig {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-8px, -4px); }
+  20% { transform: translate(8px, 4px); }
+  30% { transform: translate(-6px, -2px); }
+  40% { transform: translate(6px, 2px); }
+  50% { transform: translate(-4px, -1px); }
+  60% { transform: translate(4px, 1px); }
+  70% { transform: translate(-2px, 0); }
+  80% { transform: translate(2px, 0); }
+}
+
+.shake-invalid {
+  animation: shakeInvalid 0.3s ease;
+}
+
+@keyframes shakeInvalid {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+/* Victory Screen */
+.boss-victory {
+  position: relative;
+  text-align: center;
+  padding: var(--space-10);
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.victory-confetti {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.victory-content {
+  position: relative;
+  z-index: 1;
+}
+
+.victory-emoji {
+  font-size: 5rem;
+  animation: victoryBounce 1s ease infinite;
+}
+
+@keyframes victoryBounce {
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+.victory-title {
+  font-size: var(--text-4xl);
+  font-weight: var(--font-extrabold);
+  background: linear-gradient(135deg, #fbbf24, #f59e0b, #ef4444);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: var(--space-4) 0;
+  animation: victoryPulse 1s ease infinite;
+}
+
+@keyframes victoryPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.victory-text {
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-2);
+}
+
+.victory-damage {
+  font-size: var(--text-base);
+  color: var(--text-muted);
+  margin-bottom: var(--space-6);
+}
+
+.victory-achievement {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(245, 158, 11, 0.2));
+  border: 2px solid #f59e0b;
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-6);
+  animation: achievementGlow 2s ease infinite;
+}
+
+@keyframes achievementGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(245, 158, 11, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(245, 158, 11, 0.6); }
+}
+
+.victory-achievement-icon {
+  font-size: var(--text-xl);
+}
+
+.victory-achievement-text {
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  color: #f59e0b;
+}
+
+.victory-btn {
+  margin-top: var(--space-4);
+}
+
+/* Defeat Screen */
+.boss-defeat {
+  text-align: center;
+  padding: var(--space-10);
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.defeat-emoji {
+  font-size: 5rem;
+  animation: defeatShake 2s ease infinite;
+}
+
+@keyframes defeatShake {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
+}
+
+.defeat-title {
+  font-size: var(--text-4xl);
+  font-weight: var(--font-extrabold);
+  color: #6b7280;
+  margin: var(--space-4) 0;
+}
+
+.defeat-text {
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-2);
+}
+
+.defeat-damage {
+  font-size: var(--text-base);
+  color: var(--text-muted);
+  margin-bottom: var(--space-6);
+}
+
+.defeat-buttons {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+}
+
+/* Responsive Boss Game */
+@media (max-width: 640px) {
+  .boss-tile {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  
+  .boss-grid {
+    gap: 3px;
+    padding: var(--space-3);
+  }
+  
+  .boss-emoji {
+    font-size: 3rem;
+  }
+  
+  .boss-battle {
+    padding: var(--space-2);
+  }
+  
+  .player-section {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  
+  .defeat-buttons {
+    flex-direction: column;
+  }
+}
+
 /* ==================== Responsive ==================== */
 @media (max-width: 640px) {
   .achievement-panel__grid {
