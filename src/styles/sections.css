@@ -474,22 +474,16 @@ section > .hero__container {
 }
 
 .contact__content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-16);
-}
-
-.contact__form {
-  background: var(--bg-primary);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-xl);
-  padding: var(--space-8);
+  display: flex;
+  justify-content: center;
 }
 
 .contact__info {
   display: flex;
   flex-direction: column;
   gap: var(--space-8);
+  max-width: 500px;
+  width: 100%;
 }
 
 .contact__info-card {
@@ -497,6 +491,7 @@ section > .hero__container {
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-xl);
   padding: var(--space-8);
+  text-align: center;
 }
 
 .contact__info-title {
@@ -512,7 +507,8 @@ section > .hero__container {
 
 .contact__socials {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: var(--space-3);
 }
 
@@ -532,7 +528,7 @@ section > .hero__container {
 .contact__social-link:hover {
   background: var(--bg-elevated);
   border-color: var(--border-visible);
-  transform: translateX(4px);
+  transform: translateY(-2px);
 }
 
 .contact__social-link svg {

@@ -28,9 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initGame();
   initPeekingCharacter();
   
-  // Handle contact form
-  initContactForm();
-  
   // Handle meta link (portfolio Live Demo easter egg)
   initMetaLink();
   
@@ -142,39 +139,6 @@ function initVideoHover() {
       if (thumbnail) thumbnail.style.opacity = '1';
       video.style.opacity = '0';
     });
-  });
-}
-
-function initContactForm() {
-  const form = document.getElementById('contactForm');
-  if (!form) return;
-  
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    const btn = form.querySelector('button[type="submit"]');
-    const originalText = btn.innerHTML;
-    
-    // Show loading state
-    btn.disabled = true;
-    btn.innerHTML = '<span>Sending...</span>';
-    
-    // Simulate form submission (replace with actual endpoint later)
-    await new Promise(r => setTimeout(r, 1500));
-    
-    // Show success
-    btn.innerHTML = '<span>✓ Message Sent!</span>';
-    btn.style.background = 'var(--accent-success)';
-    
-    // Reset form
-    form.reset();
-    
-    // Reset button after delay
-    setTimeout(() => {
-      btn.disabled = false;
-      btn.innerHTML = originalText;
-      btn.style.background = '';
-    }, 3000);
   });
 }
 
