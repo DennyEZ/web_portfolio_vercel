@@ -9,7 +9,7 @@ export const projects = [
     emoji: '🎯',
     tags: ['Unreal Engine 5', 'Python', 'Computer Vision', 'Deep Learning', 'Robotics'],
     liveUrl: null,
-    githubUrl: '#',
+    githubUrl: 'https://github.com/DennyEZ/UE5_SyntheticDataGen',
     featured: true
   },
   {
