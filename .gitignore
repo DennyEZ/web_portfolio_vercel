@@ -25,3 +25,8 @@ npm-debug.log*
 .env
 .env.local
 .env.*.local
+
+# AI context (local only)
+AI.md
+CLAUDE.md
+AGENTS.md

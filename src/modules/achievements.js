@@ -110,19 +110,78 @@ class AchievementSystem {
   renderPanel() {
     if (!this.panelGrid) return;
     
-    this.panelGrid.innerHTML = this.achievements.map(achievement => `
-      <div class="achievement-item ${achievement.unlocked ? 'unlocked' : 'locked'}">
-        <div class="achievement-item__icon">${achievement.icon}</div>
-        <div class="achievement-item__info">
-          <div class="achievement-item__name">
-            ${achievement.unlocked ? achievement.name : '???'}
+    this.panelGrid.innerHTML = this.achievements.map(achievement => {
+      // Special rendering for boss achievement
+      if (achievement.isBossAchievement) {
+        return `
+          <div class="achievement-item achievement-item--boss ${achievement.unlocked ? 'unlocked' : 'locked'}" data-achievement-id="${achievement.id}">
+            <div class="achievement-item__icon">${achievement.unlocked ? achievement.icon : '🔒'}</div>
+            <div class="achievement-item__info">
+              <div class="achievement-item__name">
+                ${achievement.unlocked ? achievement.name : achievement.teaser}
+              </div>
+              <div class="achievement-item__description">
+                ${achievement.unlocked ? achievement.description : 'A challenge awaits...'}
+              </div>
+            </div>
+            ${!achievement.unlocked ? `
+              <button class="achievement-item__boss-btn" aria-label="Challenge the Boss">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 18l6-6-6-6"/>
+                </svg>
+              </button>
+            ` : ''}
           </div>
-          <div class="achievement-item__description">
-            ${achievement.unlocked ? achievement.description : 'Keep exploring...'}
+        `;
+      }
+      
+      // Normal achievement rendering
+      return `
+        <div class="achievement-item ${achievement.unlocked ? 'unlocked' : 'locked'}">
+          <div class="achievement-item__icon">${achievement.icon}</div>
+          <div class="achievement-item__info">
+            <div class="achievement-item__name">
+              ${achievement.unlocked ? achievement.name : '???'}
+            </div>
+            <div class="achievement-item__description">
+              ${achievement.unlocked ? achievement.description : (achievement.hint || 'Keep exploring...')}
+            </div>
           </div>
         </div>
-      </div>
-    `).join('');
+      `;
+    }).join('');
+    
+    // Add click listener for boss achievement button
+    const bossBtn = this.panelGrid.querySelector('.achievement-item__boss-btn');
+    if (bossBtn) {
+      bossBtn.addEventListener('click', () => this.showBossConfirmation());
+    }
+  }
+  
+  showBossConfirmation() {
+    // Close the achievement panel first
+    this.closePanel();
+    
+    // Show the boss confirmation modal
+    const modal = document.getElementById('bossConfirmModal');
+    if (modal) {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+  
+  closeBossConfirmation() {
+    const modal = document.getElementById('bossConfirmModal');
+    if (modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+  
+  startBossBattle() {
+    this.closeBossConfirmation();
+    // Trigger the boss game modal
+    window.dispatchEvent(new CustomEvent('startBossBattle'));
   }
   
   setupPanelListeners() {
@@ -134,10 +193,25 @@ class AchievementSystem {
     closeBtn?.addEventListener('click', () => this.closePanel());
     overlay?.addEventListener('click', () => this.closePanel());
     
+    // Boss confirmation modal listeners
+    const bossModal = document.getElementById('bossConfirmModal');
+    const bossYesBtn = document.getElementById('bossConfirmYes');
+    const bossNoBtn = document.getElementById('bossConfirmNo');
+    const bossOverlay = bossModal?.querySelector('.boss-confirm__overlay');
+    
+    bossYesBtn?.addEventListener('click', () => this.startBossBattle());
+    bossNoBtn?.addEventListener('click', () => this.closeBossConfirmation());
+    bossOverlay?.addEventListener('click', () => this.closeBossConfirmation());
+    
     // Close on Escape
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && this.panel?.classList.contains('active')) {
-        this.closePanel();
+      if (e.key === 'Escape') {
+        if (this.panel?.classList.contains('active')) {
+          this.closePanel();
+        }
+        if (bossModal?.classList.contains('active')) {
+          this.closeBossConfirmation();
+        }
       }
     });
   }

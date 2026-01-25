@@ -3,9 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio of a passionate developer specializing in game development and interactive experiences. Applying to DreamGames, Peak Games, and Codeway.">
-  <meta name="keywords" content="developer, portfolio, game development, internship, DreamGames, Peak Games, Codeway">
-  <title>welcome</title>
+  <meta name="description" content="Deniz Meral - Developer portfolio showcasing game development, interactive experiences, and software engineering projects.">
+  <meta name="keywords" content="Deniz Meral, developer, portfolio, game development, software engineer, Istanbul Technical University">
+  <title>Deniz Meral | Portfolio</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0a0a0b">
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,6 +44,7 @@
         <ul class="header__nav-list">
           <li><a href="#about" class="header__nav-link" data-section="about">About</a></li>
           <li><a href="#skills" class="header__nav-link" data-section="skills">Skills</a></li>
+          <li><a href="#experience" class="header__nav-link" data-section="experience">Experience</a></li>
           <li><a href="#projects" class="header__nav-link" data-section="projects">Projects</a></li>
           <li><a href="#contact" class="header__nav-link" data-section="contact">Contact</a></li>
         </ul>
@@ -61,6 +70,7 @@
     <nav class="mobile-menu__nav">
       <a href="#about" class="mobile-menu__link" data-section="about">About</a>
       <a href="#skills" class="mobile-menu__link" data-section="skills">Skills</a>
+      <a href="#experience" class="mobile-menu__link" data-section="experience">Experience</a>
       <a href="#projects" class="mobile-menu__link" data-section="projects">Projects</a>
       <a href="#contact" class="mobile-menu__link" data-section="contact">Contact</a>
     </nav>
@@ -135,6 +145,56 @@
         
         <div class="skills__grid" id="skillsGrid">
           <!-- Skills will be dynamically inserted -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+      <div class="experience__container">
+        <div class="section-header">
+          <span class="section-header__label">Where I Contribute</span>
+          <h2 class="section-header__title">Experience</h2>
+          <p class="section-header__description">
+            Building real-world systems with talented teams
+          </p>
+        </div>
+        
+        <div class="experience__timeline">
+          <div class="experience__card">
+            <div class="experience__card-header">
+              <div class="experience__card-icon">🤖</div>
+              <div class="experience__card-info">
+                <h3 class="experience__card-title">Software Sub-Team Member</h3>
+                <p class="experience__card-org">
+                  <a href="https://github.com/itu-auv" target="_blank" rel="noopener noreferrer" class="experience__card-org-link">
+                    ITU AUV Team
+                    <svg class="experience__card-org-icon" viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                    </svg>
+                  </a>
+                </p>
+                <span class="experience__card-date">2024 — Present</span>
+              </div>
+            </div>
+            <div class="experience__card-body">
+              <p class="experience__card-description">
+                Contributing to the software systems of an Autonomous Underwater Vehicle for international robotics competitions. Working on computer vision, simulation, and autonomous navigation systems.
+              </p>
+              <ul class="experience__card-highlights">
+                <li>Built synthetic dataset generator in Unreal Engine 5 for DOPE pose estimation</li>
+                <li>Developing computer vision pipelines for underwater object detection</li>
+                <li>Collaborating with mechanical and electrical teams on integrated systems</li>
+              </ul>
+              <div class="experience__card-tags">
+                <span class="experience__tag">ROS1</span>
+                <span class="experience__tag">Python</span>
+                <span class="experience__tag">Unreal Engine 5</span>
+                <span class="experience__tag">Computer Vision</span>
+                <span class="experience__tag">OpenCV</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -278,6 +338,48 @@
       </div>
       <div class="achievement-panel__grid" id="achievementPanelGrid">
         <!-- Achievements will be dynamically inserted -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Boss Confirmation Modal -->
+  <div class="boss-confirm" id="bossConfirmModal">
+    <div class="boss-confirm__overlay"></div>
+    <div class="boss-confirm__content">
+      <div class="boss-confirm__icon">⚔️</div>
+      <h2 class="boss-confirm__title">A Challenge Awaits</h2>
+      <p class="boss-confirm__text">
+        This will take you to the <strong>Boss Battle</strong>. 
+        When you defeat it, you will earn the legendary 
+        <span class="boss-confirm__achievement">Bravest of Them All</span> achievement.
+      </p>
+      <p class="boss-confirm__question">Are you sure you want to proceed, hero?</p>
+      <div class="boss-confirm__buttons">
+        <button class="btn btn--primary boss-confirm__btn" id="bossConfirmYes">
+          <span>⚔️ Enter Battle</span>
+        </button>
+        <button class="btn btn--secondary boss-confirm__btn" id="bossConfirmNo">
+          <span>Not Yet</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Boss Battle Game Modal -->
+  <div class="boss-game" id="bossGameModal">
+    <div class="boss-game__overlay"></div>
+    <div class="boss-game__content">
+      <div class="boss-game__header">
+        <h2 class="boss-game__title">⚔️ Boss Battle</h2>
+        <button class="boss-game__close" id="bossGameClose">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="boss-game__arena" id="bossGameArena">
+        <!-- Boss game will be implemented here -->
+        <p class="boss-game__placeholder">🎮 Boss game coming soon...</p>
       </div>
     </div>
   </div>

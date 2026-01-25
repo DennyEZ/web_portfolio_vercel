@@ -12,49 +12,65 @@ export const achievements = [
     name: 'Explorer',
     description: 'Visited all sections',
     icon: '🧭',
-    trigger: 'allSections'
+    trigger: 'allSections',
+    hint: 'Every corner holds something new...'
   },
   {
     id: 'curious',
     name: 'Curious Mind',
     description: 'Viewed 3 project details',
     icon: '🔍',
-    trigger: 'viewProjects'
+    trigger: 'viewProjects',
+    hint: 'Projects are meant to be explored...'
   },
   {
     id: 'night_owl',
     name: 'Night Owl',
     description: 'Visiting after midnight',
     icon: '🦉',
-    trigger: 'nightTime'
+    trigger: 'nightTime',
+    hint: 'Some secrets only reveal at night...'
   },
   {
     id: 'scroller',
     name: 'Dedicated Reader',
     description: 'Scrolled through the entire page',
     icon: '📜',
-    trigger: 'scrollComplete'
+    trigger: 'scrollComplete',
+    hint: 'The journey matters from top to bottom...'
   },
   {
     id: 'connector',
     name: "Let's Connect",
     description: 'Clicked a social link',
     icon: '🤝',
-    trigger: 'socialClick'
+    trigger: 'socialClick',
+    hint: 'Reach out and connect...'
   },
   {
     id: 'gamer',
     name: 'True Gamer',
     description: 'Found the hidden game',
     icon: '🎮',
-    trigger: 'easterEgg'
+    trigger: 'easterEgg',
+    hint: 'Type your way to fun...'
   },
   {
     id: 'champion',
     name: 'Champion',
     description: 'Won the match-3 game',
     icon: '🏆',
-    trigger: 'gameWin'
+    trigger: 'gameWin',
+    hint: 'First find it, then master it...'
+  },
+  {
+    id: 'boss_slayer',
+    name: 'Bravest of Them All',
+    description: 'Defeated the Boss!',
+    icon: '⚔️',
+    trigger: 'bossDefeated',
+    isBossAchievement: true,
+    teaser: 'Are you ready?'
   }
 ];
 

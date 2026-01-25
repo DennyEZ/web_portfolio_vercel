@@ -372,15 +372,87 @@ class Match3Game {
   }
 }
 
+// Boss Game Class - placeholder for the actual boss battle game
+class BossGame {
+  constructor() {
+    this.modal = document.getElementById('bossGameModal');
+    this.arena = document.getElementById('bossGameArena');
+    this.closeBtn = document.getElementById('bossGameClose');
+    
+    this.init();
+  }
+  
+  init() {
+    this.setupListeners();
+  }
+  
+  setupListeners() {
+    this.closeBtn?.addEventListener('click', () => this.close());
+    
+    this.modal?.querySelector('.boss-game__overlay')
+      ?.addEventListener('click', () => this.close());
+    
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && this.modal?.classList.contains('active')) {
+        this.close();
+      }
+    });
+    
+    // Listen for boss battle start event
+    window.addEventListener('startBossBattle', () => this.open());
+  }
+  
+  open() {
+    if (!this.modal) return;
+    
+    this.modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    
+    // TODO: Initialize the boss game here
+    this.renderPlaceholder();
+  }
+  
+  close() {
+    this.modal?.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  
+  renderPlaceholder() {
+    // Placeholder until the actual game is implemented
+    this.arena.innerHTML = `
+      <div class="boss-game__coming-soon">
+        <div class="boss-game__boss-icon">👹</div>
+        <h3>Boss Battle Coming Soon!</h3>
+        <p>The game is being forged in the depths...</p>
+        <p style="color: var(--text-muted); font-size: var(--text-sm); margin-top: var(--space-4);">
+          (This is where your epic boss fight will appear!)
+        </p>
+      </div>
+    `;
+  }
+  
+  // Call this when player defeats the boss
+  onBossDefeated() {
+    getAchievementSystem()?.unlock('boss_slayer');
+    this.close();
+  }
+}
+
 let game = null;
+let bossGame = null;
 
 export function initGame() {
   game = new Match3Game();
+  bossGame = new BossGame();
   return game;
 }
 
 export function getGame() {
   return game;
+}
+
+export function getBossGame() {
+  return bossGame;
 }
 
 export default initGame;
