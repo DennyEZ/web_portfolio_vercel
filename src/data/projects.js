@@ -3,8 +3,8 @@ export const projects = [
   {
     id: 'candy-mayhem',
     title: 'Candy Mayhem',
-    description: 'A sweet match-3 puzzle game built with Unity. Swap candies to create matches, trigger cascading combos, and score big! Features smooth animations, colorful visuals, and addictive gameplay. Built as a mobile-first WebGL experience.',
-    image: '/images/projects/candy-mayhem-thumbnail.png',
+    description: 'Production-ready Match-3 puzzle game showcasing clean architecture with FSM game state management, Observer pattern for decoupled systems, object pooling for 60fps mobile performance, and DOTween animations. Features pattern recognition for special gems, cascade mechanics, and blocker systems.',
+    image: '/images/projects/candyMayhem-thumbnail.png',
     emoji: '🍬',
     tags: ['Unity', 'C#', 'WebGL', 'Game Development', 'Mobile'],
     liveUrl: '/game.html',

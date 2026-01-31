@@ -141,6 +141,111 @@
       transform: translateX(-4px);
     }
     
+    /* Tech Info Panel */
+    .game-page__info {
+      max-width: 600px;
+      padding: 1.25rem 1.5rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      text-align: left;
+    }
+    
+    .game-page__info-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: rgba(255, 255, 255, 0.9);
+      font-family: inherit;
+    }
+    
+    .game-page__info-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .game-page__info-toggle svg {
+      width: 20px;
+      height: 20px;
+      transition: transform 0.3s ease;
+      color: rgba(255, 255, 255, 0.5);
+    }
+    
+    .game-page__info.expanded .game-page__info-toggle svg {
+      transform: rotate(180deg);
+    }
+    
+    .game-page__info-content {
+      display: none;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .game-page__info.expanded .game-page__info-content {
+      display: block;
+    }
+    
+    .game-page__info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    
+    .game-page__info-item h4 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #ff6b9d;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.35rem;
+    }
+    
+    .game-page__info-item p {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.5;
+    }
+    
+    .game-page__info-full {
+      grid-column: 1 / -1;
+      margin-top: 0.5rem;
+    }
+    
+    .game-page__info-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    
+    .game-page__info-tag {
+      padding: 0.25rem 0.6rem;
+      background: rgba(255, 107, 157, 0.15);
+      border: 1px solid rgba(255, 107, 157, 0.3);
+      border-radius: 20px;
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 500;
+    }
+    
+    @media (max-width: 480px) {
+      .game-page__info {
+        padding: 1rem;
+      }
+      
+      .game-page__info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
     /* Loading state */
     .game-loading {
       position: absolute;
@@ -211,6 +316,45 @@
       <h1 class="game-page__title">🍬 Candy Mayhem</h1>
       <p class="game-page__subtitle">Match candies, score big!</p>
     </header>
+    
+    <div class="game-page__info" id="gameInfo">
+      <button class="game-page__info-toggle" onclick="this.parentElement.classList.toggle('expanded')">
+        <span class="game-page__info-title">⚙️ Technical Details</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 9l6 6 6-6"/>
+        </svg>
+      </button>
+      <div class="game-page__info-content">
+        <div class="game-page__info-grid">
+          <div class="game-page__info-item">
+            <h4>Architecture</h4>
+            <p>FSM game state management, Observer pattern with C# events, Model-View separation</p>
+          </div>
+          <div class="game-page__info-item">
+            <h4>Performance</h4>
+            <p>Object pooling for 60fps, coroutine-based animation sequencing, view synchronization</p>
+          </div>
+          <div class="game-page__info-item">
+            <h4>Match Systems</h4>
+            <p>Pattern recognition (3-match, 4-row rockets, 5-row rainbow, L/T-shape bombs)</p>
+          </div>
+          <div class="game-page__info-item">
+            <h4>Game Features</h4>
+            <p>Cascade gravity, blocker system (crates, stones), special gem activation</p>
+          </div>
+          <div class="game-page__info-full">
+            <div class="game-page__info-tags">
+              <span class="game-page__info-tag">Unity 6</span>
+              <span class="game-page__info-tag">C#</span>
+              <span class="game-page__info-tag">DOTween</span>
+              <span class="game-page__info-tag">ScriptableObjects</span>
+              <span class="game-page__info-tag">WebGL</span>
+              <span class="game-page__info-tag">Odin Inspector</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     
     <div class="game-container" id="gameContainer">
       <div class="game-loading" id="gameLoading">
