@@ -8,7 +8,7 @@ export const projects = [
     emoji: '🍬',
     tags: ['Unity', 'C#', 'WebGL', 'Game Development', 'Mobile'],
     liveUrl: '/game.html',
-    githubUrl: null,
+    githubUrl: 'https://github.com/DennyEZ/candyMayhem',
     featured: true
   },
   {
