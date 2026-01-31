@@ -138,6 +138,56 @@
   gap: var(--space-4);
 }
 
+/* Play Candy Mayhem Button */
+.header__play-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: linear-gradient(135deg, #ff6b9d 0%, #c44569 50%, #ff9a56 100%);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  color: #fff;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 10px rgba(255, 107, 157, 0.3);
+}
+
+.header__play-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 157, 0.5);
+}
+
+.header__play-icon {
+  font-size: var(--text-base);
+}
+
+.header__play-text {
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .header__play-text {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .header__play-btn {
+    display: none;
+  }
+}
+
+/* Mobile menu game link */
+.mobile-menu__link--game {
+  background: linear-gradient(135deg, #ff6b9d 0%, #c44569 50%, #ff9a56 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: var(--font-bold);
+}
+
 .header__achievements-btn {
   display: flex;
   align-items: center;

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity Web Player | 3matchGame</title>
+    <style>
+      html, body { margin: 0; padding: 0; overflow: hidden; height: 100%; }
+    </style>
+  </head>
+  <body style="text-align: center; padding: 0; border: 0; margin: 0;">
+    <canvas id="unity-canvas" width=1080 height=1920 tabindex="-1" style="width: 1080px; height: 1920px; background: #231F20"></canvas>
+    <script src="Build/match3.loader.js"></script>
+    <script>
+      var canvas = document.querySelector("#unity-canvas");
+      var isEmbedded = window.self !== window.top;
+      var config = {
+        arguments: [],
+        dataUrl: "Build/match3.data.unityweb",
+        frameworkUrl: "Build/match3.framework.js.unityweb",
+        codeUrl: "Build/match3.wasm.unityweb",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "3matchGame",
+        productVersion: "1.0",
+      };
+
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // Mobile device style: fill the whole browser client area with the game canvas:
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.getElementsByTagName('head')[0].appendChild(meta);
+
+        canvas.style.width = "100%";
+        canvas.style.height = "100%";
+        canvas.style.position = "fixed";
+        document.body.style.textAlign = "left";
+        config.devicePixelRatio = 1;
+
+      } else if (isEmbedded) {
+        // Embedded in iframe - fill the container
+        canvas.style.width = "100%";
+        canvas.style.height = "100%";
+        canvas.style.position = "fixed";
+        canvas.style.left = "0";
+        canvas.style.top = "0";
+        document.body.style.textAlign = "left";
+      }
+
+      createUnityInstance(canvas, config).then((unityInstance) => {
+      }).catch((message) => {
+        alert(message);
+      });
+    </script>
+  </body>
+</html>

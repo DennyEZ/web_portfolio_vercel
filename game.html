@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Play Candy Mayhem - A sweet match-3 puzzle game by Deniz Meral">
+  <title>Candy Mayhem | Deniz Meral</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#0a0a0b">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      overflow-x: hidden;
+    }
+    
+    .game-page {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      width: 100%;
+      max-width: 100%;
+    }
+    
+    .game-page__header {
+      text-align: center;
+    }
+    
+    .game-page__title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ff6b9d 0%, #c44569 50%, #ff9a56 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 40px rgba(255, 107, 157, 0.3);
+      margin-bottom: 0.5rem;
+    }
+    
+    .game-page__subtitle {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    
+    .game-container {
+      position: relative;
+      /* Fixed 9:16 aspect ratio, uses most of viewport height */
+      height: calc(100vh - 140px);
+      max-height: 800px;
+      width: calc((100vh - 140px) * 9 / 16);
+      max-width: 450px;
+      aspect-ratio: 9 / 16;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 
+        0 0 0 2px rgba(255, 107, 157, 0.3),
+        0 0 40px rgba(255, 107, 157, 0.2),
+        0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      background: #000;
+    }
+    
+    .game-container::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 26px;
+      background: linear-gradient(135deg, #ff6b9d, #c44569, #ff9a56);
+      z-index: -1;
+      opacity: 0.5;
+    }
+    
+    /* Iframe wrapper scales the 1080x1920 game down to fit container */
+    .game-iframe-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .game-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    .game-page__back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50px;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .game-page__back:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 107, 157, 0.5);
+      color: #fff;
+      transform: translateX(-4px);
+    }
+    
+    .game-page__back svg {
+      width: 18px;
+      height: 18px;
+      transition: transform 0.3s ease;
+    }
+    
+    .game-page__back:hover svg {
+      transform: translateX(-4px);
+    }
+    
+    /* Loading state */
+    .game-loading {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      z-index: 10;
+      transition: opacity 0.5s ease;
+    }
+    
+    .game-loading.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    
+    .game-loading__spinner {
+      width: 48px;
+      height: 48px;
+      border: 4px solid rgba(255, 107, 157, 0.2);
+      border-top-color: #ff6b9d;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    .game-loading__text {
+      margin-top: 1rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    /* Responsive */
+    @media (max-width: 480px) {
+      .game-page__title {
+        font-size: 1.75rem;
+      }
+      
+      .game-container {
+        max-width: 100%;
+        border-radius: 16px;
+      }
+      
+      .game-container::before {
+        border-radius: 18px;
+      }
+      
+      .game-container iframe {
+        border-radius: 16px;
+      }
+    }
+    
+    @media (min-height: 900px) {
+      .game-container {
+        max-width: 400px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="game-page">
+    <header class="game-page__header">
+      <h1 class="game-page__title">🍬 Candy Mayhem</h1>
+      <p class="game-page__subtitle">Match candies, score big!</p>
+    </header>
+    
+    <div class="game-container" id="gameContainer">
+      <div class="game-loading" id="gameLoading">
+        <div class="game-loading__spinner"></div>
+        <p class="game-loading__text">Loading game...</p>
+      </div>
+      <div class="game-iframe-wrapper" id="gameWrapper">
+        <iframe 
+          src="/match3/index.html" 
+          title="Candy Mayhem Game"
+          allow="autoplay; fullscreen"
+          onload="document.getElementById('gameLoading').classList.add('hidden')"
+        ></iframe>
+      </div>
+    </div>
+    
+    <a href="/" class="game-page__back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      Back to Portfolio
+    </a>
+  </div>
+</body>
+</html>
+

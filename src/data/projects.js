@@ -1,6 +1,17 @@
 // Projects data
 export const projects = [
   {
+    id: 'candy-mayhem',
+    title: 'Candy Mayhem',
+    description: 'A sweet match-3 puzzle game built with Unity. Swap candies to create matches, trigger cascading combos, and score big! Features smooth animations, colorful visuals, and addictive gameplay. Built as a mobile-first WebGL experience.',
+    image: '/images/projects/candy-mayhem-thumbnail.png',
+    emoji: '🍬',
+    tags: ['Unity', 'C#', 'WebGL', 'Game Development', 'Mobile'],
+    liveUrl: '/game.html',
+    githubUrl: null,
+    featured: true
+  },
+  {
     id: 'ue5-dope-generator',
     title: 'UE5 Synthetic Dataset Generator',
     description: "Synthetic dataset generator built in Unreal Engine 5 for our ITU AUV Team's Autonomous Underwater Vehicle. Generates photorealistic training data for DOPE (Deep Object Pose Estimation), segmentation, and semantic segmentation — enabling the AUV to autonomously identify and locate underwater objects for competition tasks.",
@@ -26,3 +37,4 @@ export const projects = [
 ];
 
 export default projects;
+
