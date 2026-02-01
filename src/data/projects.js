@@ -33,6 +33,17 @@ export const projects = [
     liveUrl: 'https://deniztm.me',
     githubUrl: 'https://github.com/DennyEZ/web_portfolio_vercel',
     featured: false
+  },
+  {
+    id: 'cloud-cost-optimizer',
+    title: 'FinOps Bot - Cloud Cost Optimizer',
+    description: 'A Python-based cloud cost optimization tool that analyzes AWS instance inventory, identifies over-budget resources, and automatically shuts down idle servers. Features budget analysis, idle resource detection (CPU < 5%), automated optimization with savings calculations, and smart recommendations. Containerized with Docker for easy deployment.',
+    image: '/images/projects/finops-bot-thumbnail.png',
+    emoji: '☁️',
+    tags: ['Python', 'Docker', 'AWS', 'FinOps', 'DevOps', 'Automation'],
+    liveUrl: null,
+    githubUrl: 'https://github.com/DennyEZ/cloud-automation-study',
+    featured: false
   }
 ];
 
