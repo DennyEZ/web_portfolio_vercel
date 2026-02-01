@@ -44,6 +44,17 @@ export const projects = [
     liveUrl: null,
     githubUrl: 'https://github.com/DennyEZ/cloud-automation-study',
     featured: false
+  },
+  {
+    id: 'unity-cicd-pipeline',
+    title: 'Unity CI/CD Pipeline',
+    description: 'Automated CI/CD pipeline using GitHub Actions and GameCI to build Unity WebGL games in the cloud. On every push to main, the workflow activates Unity license, builds the project for WebGL, and automatically deploys to my portfolio website via cross-repository push. Features build caching for faster subsequent builds and zero manual intervention deployment.',
+    image: '/images/projects/cicd-pipeline-thumbnail.png',
+    emoji: '🔄',
+    tags: ['GitHub Actions', 'CI/CD', 'DevOps', 'Unity', 'GameCI', 'Automation'],
+    liveUrl: '/match3/index.html',
+    githubUrl: 'https://github.com/DennyEZ/3matchGame',
+    featured: false
   }
 ];
 
