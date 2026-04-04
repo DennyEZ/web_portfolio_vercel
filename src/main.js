@@ -1,5 +1,6 @@
 // Main entry point
 import './styles/main.css';
+import { injectSpeedInsights } from '@vercel/speed-insights';
 import initNavigation from './modules/navigation.js';
 import initAnimations, { initProgressBar } from './modules/animations.js';
 import initAchievements, { getAchievementSystem } from './modules/achievements.js';
@@ -7,6 +8,9 @@ import initGame from './modules/game.js';
 import initPeekingCharacter from './modules/peekingCharacter.js';
 import skillCategories from './data/skills.js';
 import projects from './data/projects.js';
+
+// Initialize Vercel Speed Insights
+injectSpeedInsights();
 
 // Initialize app when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
