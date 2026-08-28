@@ -1,0 +1,363 @@
+/* ============================================================
+   Deniz Meral - Engineering Portfolio
+   Stylesheet: classic.css
+   Author: Deniz Meral
+   Last revised: 2026
+   Layout: fixed-width, 960px, two columns
+   ============================================================ */
+
+/* ---------- 1. Reset ---------- */
+* { margin: 0; padding: 0; }
+html { height: 100%; }
+img { border: 0; }
+ol, ul { list-style-position: outside; }
+
+/* ---------- 2. Page ---------- */
+body {
+	background-color: #d8dde2;
+	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='4' height='4'><rect width='4' height='4' fill='%23d8dde2'/><rect width='1' height='1' fill='%23d2d7dd'/><rect x='2' y='2' width='1' height='1' fill='%23d2d7dd'/></svg>");
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 1.6;
+	color: #333333;
+	padding: 16px 0 32px 0;
+}
+
+#wrapper {
+	width: 940px;
+	margin: 0 auto;
+	background-color: #ffffff;
+	border: 1px solid #9aa4ae;
+	border-radius: 6px;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.28);
+	overflow: hidden;
+}
+
+/* ---------- 3. Masthead ---------- */
+#masthead {
+	background-color: #1f4e79;
+	background-image: -webkit-linear-gradient(top, #2f6ea3, #1a4266);
+	background-image: linear-gradient(to bottom, #2f6ea3, #1a4266);
+	border-bottom: 3px solid #12314c;
+	padding: 16px 20px 14px 20px;
+	position: relative;
+}
+
+#masthead h1 {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 27px;
+	font-weight: normal;
+	color: #ffffff;
+	text-shadow: 0 1px 2px rgba(0,0,0,0.55);
+	letter-spacing: 0.5px;
+}
+
+#masthead h1 a { color: #ffffff; text-decoration: none; }
+
+#masthead .tagline {
+	font-size: 11px;
+	color: #b8d4ec;
+	margin-top: 3px;
+	font-style: italic;
+}
+
+#masthead .contact-strip {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	text-align: right;
+	font-size: 10px;
+	color: #b8d4ec;
+	line-height: 1.7;
+}
+#masthead .contact-strip a { color: #ffffff; }
+
+/* ---------- 4. Navigation tabs ---------- */
+#navbar {
+	background-color: #e4e8ec;
+	background-image: -webkit-linear-gradient(top, #f4f6f8, #dde2e7);
+	background-image: linear-gradient(to bottom, #f4f6f8, #dde2e7);
+	border-bottom: 1px solid #9aa4ae;
+	padding: 0 12px;
+	height: 30px;
+}
+
+#navbar ul { list-style: none; }
+#navbar li { float: left; }
+
+#navbar a {
+	display: block;
+	padding: 7px 16px 6px 16px;
+	font-size: 11px;
+	font-weight: bold;
+	color: #24486b;
+	text-decoration: none;
+	border-right: 1px solid #c3cad1;
+	text-shadow: 0 1px 0 #ffffff;
+}
+
+#navbar a:hover {
+	background-color: #ffffff;
+	color: #0b3861;
+	text-decoration: underline;
+}
+
+#navbar a.current {
+	background-color: #ffffff;
+	color: #12314c;
+	border-bottom: 1px solid #ffffff;
+	margin-bottom: -1px;
+}
+
+/* ---------- 5. Breadcrumb ---------- */
+#breadcrumb {
+	clear: both;
+	background-color: #f7f8fa;
+	border-bottom: 1px solid #dfe3e8;
+	padding: 5px 20px;
+	font-size: 10px;
+	color: #777777;
+}
+
+/* ---------- 6. Columns ---------- */
+#container { padding: 18px 20px 8px 20px; }
+
+#content {
+	float: left;
+	width: 640px;
+}
+
+#sidebar {
+	float: right;
+	width: 240px;
+}
+
+.clearer { clear: both; height: 0; overflow: hidden; }
+
+/* ---------- 7. Typography ---------- */
+h2 {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 19px;
+	font-weight: normal;
+	color: #1f4e79;
+	border-bottom: 1px solid #cfd6dd;
+	padding-bottom: 5px;
+	margin-bottom: 12px;
+}
+
+h3 {
+	font-size: 12px;
+	color: #1f4e79;
+	margin: 18px 0 6px 0;
+}
+
+h4 {
+	font-size: 11px;
+	color: #444444;
+	margin: 12px 0 4px 0;
+}
+
+p { margin-bottom: 11px; text-align: justify; }
+
+a { color: #0b57a4; }
+a:visited { color: #6b3fa0; }
+a:hover { color: #c0392b; }
+
+ul.bullets, ol.numbers { margin: 0 0 12px 22px; }
+ul.bullets li, ol.numbers li { margin-bottom: 4px; }
+
+hr {
+	border: 0;
+	border-top: 1px solid #dfe3e8;
+	height: 0;
+	margin: 16px 0;
+}
+
+acronym, abbr { border-bottom: 1px dotted #888888; cursor: help; }
+code, .mono { font-family: "Courier New", Courier, monospace; font-size: 11px; }
+
+/* ---------- 8. Boxes ---------- */
+.box {
+	border: 1px solid #c3cad1;
+	border-radius: 4px;
+	background-color: #fbfcfd;
+	margin-bottom: 16px;
+}
+
+.box h3 {
+	margin: 0;
+	padding: 6px 10px;
+	font-size: 11px;
+	color: #ffffff;
+	background-color: #5b7288;
+	background-image: -webkit-linear-gradient(top, #6d859c, #4d6376);
+	background-image: linear-gradient(to bottom, #6d859c, #4d6376);
+	border-bottom: 1px solid #c3cad1;
+	border-radius: 3px 3px 0 0;
+	text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+}
+
+.box .box-body { padding: 9px 10px; }
+.box .box-body p { text-align: left; }
+
+.notice {
+	border: 1px solid #e0d29a;
+	background-color: #fdf8e3;
+	padding: 8px 10px;
+	margin-bottom: 14px;
+	font-size: 11px;
+	border-radius: 3px;
+}
+
+/* ---------- 9. Sidebar bits ---------- */
+.photo-frame {
+	border: 1px solid #c3cad1;
+	background-color: #ffffff;
+	padding: 4px;
+	border-radius: 3px;
+	margin-bottom: 12px;
+	text-align: center;
+}
+.photo-frame img { width: 100%; display: block; border-radius: 2px; }
+.photo-frame .caption {
+	font-size: 10px;
+	color: #777777;
+	padding-top: 5px;
+	font-style: italic;
+}
+
+ul.linklist { list-style: none; }
+ul.linklist li {
+	border-bottom: 1px dotted #d5dae0;
+	padding: 4px 0 4px 12px;
+	background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='5' height='5'><path d='M0 0 L5 2.5 L0 5 Z' fill='%235b7288'/></svg>") no-repeat 0 8px;
+}
+ul.linklist li.last { border-bottom: 0; }
+
+dl.facts { font-size: 11px; }
+dl.facts dt { font-weight: bold; color: #1f4e79; margin-top: 6px; }
+dl.facts dt.first { margin-top: 0; }
+dl.facts dd { margin: 0 0 0 0; color: #444444; }
+
+/* ---------- 10. Tables ---------- */
+table.data {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 16px;
+	font-size: 11px;
+}
+
+table.data th {
+	background-color: #e4e8ec;
+	background-image: -webkit-linear-gradient(top, #f0f3f6, #dde2e7);
+	background-image: linear-gradient(to bottom, #f0f3f6, #dde2e7);
+	border: 1px solid #c3cad1;
+	padding: 5px 8px;
+	text-align: left;
+	color: #24486b;
+	text-shadow: 0 1px 0 #ffffff;
+}
+
+table.data td {
+	border: 1px solid #d9dee3;
+	padding: 5px 8px;
+	vertical-align: top;
+}
+
+table.data tr.alt td { background-color: #f7f9fb; }
+table.data td.rating { white-space: nowrap; color: #1f4e79; letter-spacing: 1px; }
+
+/* ---------- 11. Project entries ---------- */
+.entry {
+	border: 1px solid #d9dee3;
+	border-radius: 4px;
+	padding: 12px 14px;
+	margin-bottom: 14px;
+	background-color: #ffffff;
+}
+.entry h3 { margin-top: 0; font-size: 13px; }
+.entry .meta {
+	font-size: 10px;
+	color: #777777;
+	border-bottom: 1px dotted #d5dae0;
+	padding-bottom: 6px;
+	margin-bottom: 8px;
+}
+.entry .keywords {
+	font-size: 10px;
+	color: #555555;
+	background-color: #f4f6f8;
+	border-top: 1px solid #e6eaee;
+	padding: 5px 8px;
+	margin: 8px -14px -12px -14px;
+	border-radius: 0 0 3px 3px;
+}
+.entry .keywords strong { color: #24486b; }
+
+/* ---------- 12. Buttons ---------- */
+a.button, input.button {
+	display: inline-block;
+	padding: 4px 12px;
+	font-family: Verdana, Geneva, Arial, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #ffffff !important;
+	text-decoration: none;
+	text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+	background-color: #3d7ab5;
+	background-image: -webkit-linear-gradient(top, #5b96cd, #2f6ea3);
+	background-image: linear-gradient(to bottom, #5b96cd, #2f6ea3);
+	border: 1px solid #24486b;
+	border-radius: 3px;
+	cursor: pointer;
+}
+a.button:hover, input.button:hover {
+	background-image: -webkit-linear-gradient(top, #6ba4d8, #3a7cb3);
+	background-image: linear-gradient(to bottom, #6ba4d8, #3a7cb3);
+}
+
+/* ---------- 13. Forms ---------- */
+form.classic label {
+	display: block;
+	font-weight: bold;
+	color: #24486b;
+	margin-bottom: 3px;
+}
+form.classic input.text, form.classic textarea, form.classic select {
+	font-family: Verdana, Geneva, Arial, sans-serif;
+	font-size: 11px;
+	color: #333333;
+	border: 1px solid #b6bec6;
+	border-top-color: #98a2ab;
+	background-color: #ffffff;
+	padding: 4px;
+	width: 300px;
+	margin-bottom: 10px;
+	border-radius: 2px;
+}
+form.classic textarea { width: 400px; height: 110px; }
+
+/* ---------- 14. Footer ---------- */
+#footer {
+	clear: both;
+	border-top: 1px solid #c3cad1;
+	background-color: #eef1f4;
+	background-image: -webkit-linear-gradient(top, #f6f8fa, #e6eaee);
+	background-image: linear-gradient(to bottom, #f6f8fa, #e6eaee);
+	padding: 10px 20px 12px 20px;
+	font-size: 10px;
+	color: #666666;
+}
+#footer p { text-align: left; margin-bottom: 4px; }
+#footer .right { float: right; text-align: right; }
+#footer .badge {
+	display: inline-block;
+	border: 1px solid #b6bec6;
+	background-color: #ffffff;
+	color: #556677;
+	padding: 1px 5px;
+	margin-left: 4px;
+	font-size: 9px;
+	border-radius: 2px;
+	text-decoration: none;
+}

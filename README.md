@@ -1,91 +1,69 @@
-# Game-Inspired Portfolio
+# Engineering Portfolio — Classic Edition
 
-A professional, interactive portfolio website with game elements, built for internship applications to game studios.
+A plain, hand-coded portfolio site for **Deniz Meral**, presenting control and
+automation engineering work: control systems, embedded electronics, industrial
+automation and instrumentation.
 
-## 🎮 Features
+This is the `classicEng_ver` branch. It is a deliberately separate edition of the
+site from the gamified game-development portfolio on `main` — different audience,
+different presentation, no shared styling.
 
-- **Dark Theme Design** - Professional, game-inspired aesthetic
-- **Achievement System** - 8 unlockable achievements with toast notifications
-- **Hidden Match-3 Game** - Easter egg mini-game (Konami code: ↑↑↓↓←→←→BA)
-- **XP Progress Bar** - Tracks exploration progress
-- **Smooth Animations** - Powered by GSAP with scroll triggers
-- **Responsive Design** - Works on desktop and mobile
+## Design
 
-## 🚀 Quick Start
+The site is styled after a typical **circa-2010 professional website**:
+
+- Fixed-width 940px centred layout, white content panel on a tiled grey background
+- Two columns — main content on the left, sidebar boxes on the right
+- Glossy gradient masthead and tab navigation, drop shadows, rounded corners
+- Verdana body text with Georgia headings, blue underlined links
+- Data presented in bordered, zebra-striped tables rather than cards
+- Breadcrumb trail, "last updated" line and badge row in the footer
+- Multi-page structure with real page loads — no single-page routing
+
+No frameworks, no animation libraries, no tracking, no cookies. Just HTML, CSS
+and about a hundred lines of plain JavaScript.
+
+## Pages
+
+| File | Contents |
+|---|---|
+| `index.html` | Welcome, areas of work, recent updates |
+| `about.html` | Background, approach to engineering problems, languages |
+| `skills.html` | Rated skill tables: control, electronics, embedded/automation, tools |
+| `projects.html` | Project archive with contributions and repository links |
+| `experience.html` | Education and team experience |
+| `contact.html` | Contact details and a `mailto:` form |
+
+## Assets
+
+```
+src/classic/classic.css   Stylesheet (bundled and hashed by Vite)
+public/js/classic.js      Helper script (served verbatim)
+public/images/            Photograph and other static images
+```
+
+`classic.js` handles current-tab highlighting, table striping, the footer's
+last-updated date, and validation of the contact form before it is handed to the
+visitor's mail program.
+
+## Development
 
 ```bash
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
+npm install     # install dependencies
+npm run dev     # development server on http://localhost:3000
+npm run build   # production build into dist/
+npm run preview # serve the production build
 ```
 
-## 📁 Project Structure
+Each page is registered as a separate Rollup input in `vite.config.js`; adding a
+page means adding both the HTML file and an entry there.
 
-```
-web_portfolio/
-├── index.html              # Main HTML
-├── src/
-│   ├── main.js             # Entry point
-│   ├── styles/             # CSS modules
-│   │   ├── variables.css   # Design tokens
-│   │   ├── base.css        # Reset & base styles
-│   │   ├── components.css  # Reusable components
-│   │   ├── header.css      # Header & navigation
-│   │   ├── sections.css    # Page sections
-│   │   └── game.css        # Game elements
-│   ├── modules/            # JavaScript modules
-│   │   ├── navigation.js   # Nav & smooth scroll
-│   │   ├── animations.js   # GSAP animations
-│   │   ├── achievements.js # Achievement system
-│   │   └── game.js         # Match-3 game
-│   └── data/               # Static data
-│       ├── skills.js       # Skills list
-│       ├── projects.js     # Projects list
-│       └── achievements.js # Achievement defs
-└── public/                 # Static assets
-```
+## Editing content
 
-## 🏆 Achievements
+All content lives directly in the HTML files — there is no data layer to edit.
+The masthead, navigation, sidebar and footer blocks are repeated verbatim in each
+page, so a change to any of them needs to be applied across all six.
 
-| Achievement | Trigger |
-|------------|---------|
-| First Steps | Visit the site |
-| Explorer | Visit all sections |
-| Curious Mind | View 3 projects |
-| Night Owl | Visit after midnight |
-| Dedicated Reader | Scroll all content |
-| Let's Connect | Click a social link |
-| True Gamer | Find the hidden game |
-| Champion | Win the match-3 game |
-
-## 🎯 Easter Eggs
-
-- **Konami Code**: ↑↑↓↓←→←→BA - Opens the match-3 game
-- **Coffee Click**: Click ☕ in footer 5 times quickly
-- **Secret Word**: Type "play" anywhere on the page
-
-## 📦 Tech Stack
-
-- **Vite** - Build tool & dev server
-- **Vanilla JavaScript** - No framework overhead
-- **GSAP** - Smooth animations
-- **CSS Custom Properties** - Design tokens
-
-## 🎨 Customization
-
-Edit these files to personalize:
-- `src/data/skills.js` - Your skills
-- `src/data/projects.js` - Your projects
-- `index.html` - Name, bio, social links
-
-## 📄 License
+## License
 
 MIT

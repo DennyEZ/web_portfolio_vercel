@@ -11,7 +11,11 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        game: resolve(__dirname, 'game.html'),
+        about: resolve(__dirname, 'about.html'),
+        skills: resolve(__dirname, 'skills.html'),
+        projects: resolve(__dirname, 'projects.html'),
+        experience: resolve(__dirname, 'experience.html'),
+        contact: resolve(__dirname, 'contact.html'),
       },
     },
   },
