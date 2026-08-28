@@ -157,6 +157,19 @@ body {
 #sidebar {
 	float: right;
 	width: 240px;
+	clear: right;
+}
+
+/* The portrait is a direct child of #container rather than of #sidebar, so
+   that a phone can show it first without duplicating the markup. Floated
+   right ahead of the sidebar, it occupies the same top-of-column slot it
+   always did, and the sidebar boxes clear below it. */
+#container > .photo-frame {
+	float: right;
+	/* border-box so the 4px padding and 1px border stay inside the column
+	   width, exactly as they did when the frame filled the sidebar. */
+	box-sizing: border-box;
+	width: 240px;
 }
 
 .clearer { clear: both; height: 0; overflow: hidden; }
@@ -398,7 +411,10 @@ form.classic textarea { width: 400px; height: 110px; }
    tables become stacked blocks instead of scrolling sideways.
    ============================================================ */
 
-/* ---- Tablets and narrow windows: drop the fixed width ---- */
+/* ---- Narrower windows: go fluid but KEEP the two columns ----
+   A desktop browser at 125% zoom reports well under 1000px, so unstacking
+   here would drop the portrait below the article on an ordinary PC. The
+   columns become percentages instead and survive down to tablet width. */
 @media screen and (max-width: 980px) {
 	body { padding: 0; background-image: none; }
 
@@ -410,7 +426,23 @@ form.classic textarea { width: 400px; height: 110px; }
 		box-shadow: none;
 	}
 
-	#content, #sidebar { float: none; width: auto; }
+	#content { width: 65%; }
+	#sidebar, #container > .photo-frame { width: 31%; }
+}
+
+/* ---- Tablets and below: now unstack, portrait first ---- */
+@media screen and (max-width: 760px) {
+	/* Source order is portrait, article, sidebar; flex lets the portrait
+	   lead on a narrow screen instead of trailing 1500px of text. */
+	#container { display: flex; flex-direction: column; }
+	#container > .photo-frame { order: 1; float: none; }
+	#content { order: 2; float: none; width: auto; }
+	#sidebar { order: 3; float: none; width: auto; }
+
+	#container > .photo-frame {
+		width: 200px;
+		margin: 0 auto 18px auto;
+	}
 
 	#sidebar {
 		margin-top: 22px;
@@ -419,7 +451,7 @@ form.classic textarea { width: 400px; height: 110px; }
 	}
 
 	/* Side by side while there is still room for two boxes. */
-	#sidebar .box, #sidebar .photo-frame {
+	#sidebar .box {
 		display: inline-block;
 		vertical-align: top;
 		width: 48.5%;
@@ -467,19 +499,13 @@ form.classic textarea { width: 400px; height: 110px; }
 	h3 { font-size: 14px; }
 	p { text-align: left; }   /* justified text on a narrow column rivers badly */
 
-	/* One column of sidebar boxes; the portrait no longer needs to be big. */
-	#sidebar .box, #sidebar .photo-frame {
+	/* One column of sidebar boxes. */
+	#sidebar .box {
 		display: block;
 		width: auto;
 		margin-right: 0;
 	}
-	/* Needs the #sidebar prefix: the rule above sets margin-right to 0 and
-	   would otherwise outrank a bare .photo-frame, pinning it to the right. */
-	#sidebar .photo-frame {
-		max-width: 210px;
-		margin-left: auto;
-		margin-right: auto;
-	}
+	#container > .photo-frame { width: 180px; margin-bottom: 16px; }
 
 	/* Data tables become stacked blocks. A three-column skills row reads
 	   down the page as name / rating / where it was used, which needs no
@@ -553,6 +579,8 @@ form.classic textarea { width: 400px; height: 110px; }
 	body { background: none; color: #000; font-size: 10pt; }
 	#wrapper { width: auto; border: 0; box-shadow: none; }
 	#navbar, #breadcrumb, #sidebar, .lang-switch, #footer .badge { display: none; }
+	#container { display: block; }
+	#container > .photo-frame { float: right; width: 150px; margin-left: 16px; }
 	#content { float: none; width: auto; }
 	#masthead { background: none; border-bottom: 2px solid #000; }
 	#masthead h1, #masthead .tagline, #masthead .contact-strip,

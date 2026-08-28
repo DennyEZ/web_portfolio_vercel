@@ -77,9 +77,19 @@ URLs, `public/sitemap.xml` and `public/robots.txt` all need updating.
 The desktop design is a fixed 940px two-column layout and stays exactly that on
 any window wide enough to hold it — every rule for narrow screens lives in a
 media query at the end of `classic.css`, so the classic presentation is never
-touched. Below 980px the columns unstack; below 640px the type grows to a
-readable phone size, the tabs wrap into a grid with proper tap targets, and the
-data tables become stacked blocks rather than scrolling sideways.
+touched. Below 980px the layout goes fluid but **keeps both columns**, because a
+desktop browser at 125% zoom reports well under 1000px and must not get the
+stacked phone layout. The columns unstack only below 760px; below 640px the type
+grows to a readable phone size, the tabs wrap into a grid with proper tap
+targets, and the data tables become stacked blocks rather than scrolling
+sideways.
+
+The portrait is a direct child of `#container`, not of `#sidebar`. On desktop it
+floats right into the same top-of-column slot it would have occupied inside the
+sidebar (which now carries `clear: right` so its boxes fall below it); on narrow
+screens `#container` becomes a flex column and `order` puts the portrait first,
+so it leads the page instead of trailing the whole article. That placement is
+the reason it is hoisted out — it avoids a second copy of the markup.
 
 Heading-only rows are hidden on phones via `tr:not(:has(td))`, because a stacked
 skills row reads perfectly well as name / rating / where it was used. Rows that
