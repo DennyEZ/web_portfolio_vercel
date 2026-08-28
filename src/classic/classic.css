@@ -473,7 +473,13 @@ form.classic textarea { width: 400px; height: 110px; }
 		width: auto;
 		margin-right: 0;
 	}
-	.photo-frame { max-width: 190px; margin-left: auto; margin-right: auto; }
+	/* Needs the #sidebar prefix: the rule above sets margin-right to 0 and
+	   would otherwise outrank a bare .photo-frame, pinning it to the right. */
+	#sidebar .photo-frame {
+		max-width: 210px;
+		margin-left: auto;
+		margin-right: auto;
+	}
 
 	/* Data tables become stacked blocks. A three-column skills row reads
 	   down the page as name / rating / where it was used, which needs no
@@ -526,8 +532,14 @@ form.classic textarea { width: 400px; height: 110px; }
 	}
 	a.button + a.button { margin-left: 0; }
 
-	#footer { padding: 12px 16px 14px 16px; font-size: 11px; }
-	#footer .right { float: none; text-align: left; margin-bottom: 6px; }
+	/* The footer carried three stacked lines of period decoration. On a
+	   phone the validator badges and the viewing-resolution note are just
+	   bulk, so they go; the copyright, the date and back-to-top stay. */
+	#footer { padding: 11px 16px 12px 16px; font-size: 11px; line-height: 1.5; }
+	#footer .right { float: none; text-align: left; margin-bottom: 8px; }
+	#footer span.badge { display: none; }
+	#footer .fine { display: none; }
+	#footer p { margin-bottom: 3px; }
 }
 
 /* ---- Very narrow phones ---- */
