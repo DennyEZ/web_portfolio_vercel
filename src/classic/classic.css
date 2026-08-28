@@ -388,3 +388,164 @@ form.classic textarea { width: 400px; height: 110px; }
 	border-radius: 2px;
 	text-decoration: none;
 }
+
+/* ============================================================
+   15. Small screens
+   The desktop layout above is unchanged: it is a fixed 940px
+   two-column design and stays that way on anything wide enough
+   to hold it. Below that the columns unstack, the type grows to
+   a readable size for a phone held at arm's length, and the data
+   tables become stacked blocks instead of scrolling sideways.
+   ============================================================ */
+
+/* ---- Tablets and narrow windows: drop the fixed width ---- */
+@media screen and (max-width: 980px) {
+	body { padding: 0; background-image: none; }
+
+	#wrapper {
+		width: auto;
+		margin: 0;
+		border: 0;
+		border-radius: 0;
+		box-shadow: none;
+	}
+
+	#content, #sidebar { float: none; width: auto; }
+
+	#sidebar {
+		margin-top: 22px;
+		padding-top: 16px;
+		border-top: 2px solid #dfe3e8;
+	}
+
+	/* Side by side while there is still room for two boxes. */
+	#sidebar .box, #sidebar .photo-frame {
+		display: inline-block;
+		vertical-align: top;
+		width: 48.5%;
+		margin-right: 2%;
+	}
+	#sidebar .box:nth-of-type(even) { margin-right: 0; }
+}
+
+/* ---- Phones ---- */
+@media screen and (max-width: 640px) {
+	/* 11px Verdana is a desktop size. On a phone it is a squint. */
+	body { font-size: 13px; line-height: 1.65; }
+
+	#masthead { padding: 14px 16px 13px 16px; }
+	#masthead h1 { font-size: 23px; }
+	#masthead .tagline { font-size: 11px; padding-right: 60px; }
+
+	/* The contact details stop being a corner overlay and simply follow. */
+	#masthead .contact-strip {
+		position: static;
+		text-align: left;
+		margin-top: 9px;
+		padding-top: 8px;
+		border-top: 1px solid rgba(255,255,255,0.18);
+		font-size: 11px;
+	}
+	#masthead .lang-switch { font-size: 11px; padding: 5px 10px 6px 10px; }
+
+	/* Tabs wrap onto as many rows as they need, with real tap targets. */
+	#navbar { height: auto; padding: 0; overflow: hidden; }
+	#navbar ul { display: block; }
+	#navbar li { float: left; width: 33.333%; }
+	#navbar a {
+		padding: 11px 4px;
+		text-align: center;
+		font-size: 11px;
+		border-bottom: 1px solid #c3cad1;
+	}
+	#navbar a.current { margin-bottom: 0; }
+
+	#breadcrumb { padding: 6px 16px; font-size: 11px; }
+	#container { padding: 16px 16px 4px 16px; }
+
+	h2 { font-size: 20px; }
+	h3 { font-size: 14px; }
+	p { text-align: left; }   /* justified text on a narrow column rivers badly */
+
+	/* One column of sidebar boxes; the portrait no longer needs to be big. */
+	#sidebar .box, #sidebar .photo-frame {
+		display: block;
+		width: auto;
+		margin-right: 0;
+	}
+	.photo-frame { max-width: 190px; margin-left: auto; margin-right: auto; }
+
+	/* Data tables become stacked blocks. A three-column skills row reads
+	   down the page as name / rating / where it was used, which needs no
+	   column headings — so the heading-only row is dropped. Rows that pair
+	   a th label with a td value (contact details) keep the label. */
+	table.data, table.data tbody, table.data tr, table.data td, table.data th {
+		display: block;
+		width: auto !important;
+	}
+	table.data { border-top: 1px solid #d9dee3; }
+	table.data tr:not(:has(td)) { display: none; }
+
+	table.data tr {
+		border-bottom: 1px solid #d9dee3;
+		padding: 9px 0 10px 0;
+	}
+	table.data tr:last-child { border-bottom: 0; }
+	table.data td, table.data th {
+		border: 0;
+		padding: 1px 2px;
+		background: none !important;
+		text-shadow: none;
+	}
+	table.data th { color: #1f4e79; font-weight: bold; }
+	/* First cell is the row's subject - give it the weight a column
+	   heading would have carried. Dates keep their quieter treatment. */
+	table.data td:first-child:not(.mono) { font-weight: bold; color: #24486b; }
+	table.data tr.alt td { background: none; }
+	table.data td.rating { font-size: 15px; letter-spacing: 2px; }
+	table.data td.mono { color: #777777; font-size: 11px; }
+
+	/* Project entries: let the keyword strip keep its full-bleed footing. */
+	.entry { padding: 12px 12px; }
+	.entry .keywords { margin: 8px -12px -12px -12px; }
+
+	/* Forms need to be thumb-sized, not 300px-sized. */
+	form.classic input.text, form.classic textarea, form.classic select {
+		width: 100%;
+		font-size: 16px;   /* iOS zooms the page in on anything smaller */
+		padding: 8px;
+	}
+	form.classic textarea { height: 140px; }
+	a.button, input.button {
+		display: block;
+		width: 100%;
+		text-align: center;
+		padding: 11px 12px;
+		font-size: 13px;
+		margin-bottom: 8px;
+	}
+	a.button + a.button { margin-left: 0; }
+
+	#footer { padding: 12px 16px 14px 16px; font-size: 11px; }
+	#footer .right { float: none; text-align: left; margin-bottom: 6px; }
+}
+
+/* ---- Very narrow phones ---- */
+@media screen and (max-width: 380px) {
+	#navbar li { width: 50%; }
+	#masthead h1 { font-size: 20px; }
+}
+
+/* ---- Printing: the reason plain HTML is worth keeping ---- */
+@media print {
+	body { background: none; color: #000; font-size: 10pt; }
+	#wrapper { width: auto; border: 0; box-shadow: none; }
+	#navbar, #breadcrumb, #sidebar, .lang-switch, #footer .badge { display: none; }
+	#content { float: none; width: auto; }
+	#masthead { background: none; border-bottom: 2px solid #000; }
+	#masthead h1, #masthead .tagline, #masthead .contact-strip,
+	#masthead .contact-strip a { color: #000; text-shadow: none; }
+	#masthead .contact-strip { position: static; text-align: left; margin-top: 6px; }
+	a { color: #000; }
+	.entry, .box { page-break-inside: avoid; }
+}

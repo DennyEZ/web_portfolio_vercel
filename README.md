@@ -72,6 +72,22 @@ and `hreflang` tags therefore use **absolute** URLs — Vite treats those as ext
 and passes them through untouched. If the site ever moves off `deniztm.me`, those
 URLs, `public/sitemap.xml` and `public/robots.txt` all need updating.
 
+## Small screens and printing
+
+The desktop design is a fixed 940px two-column layout and stays exactly that on
+any window wide enough to hold it — every rule for narrow screens lives in a
+media query at the end of `classic.css`, so the classic presentation is never
+touched. Below 980px the columns unstack; below 640px the type grows to a
+readable phone size, the tabs wrap into a grid with proper tap targets, and the
+data tables become stacked blocks rather than scrolling sideways.
+
+Heading-only rows are hidden on phones via `tr:not(:has(td))`, because a stacked
+skills row reads perfectly well as name / rating / where it was used. Rows that
+pair a `th` label with a `td` value — the contact details — keep their label.
+
+There is also a print stylesheet: navigation, sidebar and footer badges drop
+away, leaving the content as a plain document.
+
 ## Social sharing
 
 Every page carries Open Graph and Twitter Card tags so links shared on LinkedIn,
