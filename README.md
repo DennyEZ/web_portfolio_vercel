@@ -72,6 +72,15 @@ and `hreflang` tags therefore use **absolute** URLs — Vite treats those as ext
 and passes them through untouched. If the site ever moves off `deniztm.me`, those
 URLs, `public/sitemap.xml` and `public/robots.txt` all need updating.
 
+## Social sharing
+
+Every page carries Open Graph and Twitter Card tags so links shared on LinkedIn,
+WhatsApp, Slack or X render a preview card rather than a bare URL. The card images
+`public/images/og-en.png` and `og-tr.png` (1200x630) are rendered from
+`scratch/ogcard.html`-style markup in the site's own colours; regenerate them if
+the name, role or portrait changes. Like the canonical tags, the URLs in them are
+absolute and assume `deniztm.me`.
+
 ## Search engines
 
 Each language has its own indexable URL. Every page declares a `canonical` for
