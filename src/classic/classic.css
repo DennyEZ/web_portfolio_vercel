@@ -63,7 +63,7 @@ body {
 
 #masthead .contact-strip {
 	position: absolute;
-	top: 20px;
+	top: 26px;
 	right: 20px;
 	text-align: right;
 	font-size: 10px;
@@ -71,6 +71,33 @@ body {
 	line-height: 1.7;
 }
 #masthead .contact-strip a { color: #ffffff; }
+
+/* ---------- 4a. Language switch ---------- */
+#masthead .lang-switch {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-color: rgba(0,0,0,0.22);
+	border-left: 1px solid rgba(255,255,255,0.18);
+	border-bottom: 1px solid rgba(255,255,255,0.18);
+	border-radius: 0 0 0 4px;
+	padding: 3px 9px 4px 9px;
+	font-size: 10px;
+	color: #9fc2e0;
+	letter-spacing: 0.5px;
+}
+#masthead .lang-switch a {
+	color: #d7e8f7;
+	text-decoration: none;
+	font-weight: bold;
+}
+#masthead .lang-switch a:hover { color: #ffffff; text-decoration: underline; }
+#masthead .lang-switch strong {
+	color: #ffffff;
+	font-weight: bold;
+	text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+}
+#masthead .lang-switch .sep { color: #6f93b3; padding: 0 2px; }
 
 /* ---------- 4. Navigation tabs ---------- */
 #navbar {

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Projeler :: Deniz Meral - Kontrol ve Otomasyon M&uuml;hendisli&#287;i</title>
+<meta name="description" content="Deniz Meral'in m&uuml;hendislik proje ar&#351;ivi: otonom su alt&#305; arac&#305; yaz&#305;l&#305;m&#305;, sentetik veri &uuml;retimi, otomasyon ara&ccedil;lar&#305; ve kontrol dersleri.">
+<meta name="keywords" content="Deniz Meral, kontrol m&uuml;hendisli&#287;i, otomasyon, elektronik, g&ouml;m&uuml;l&uuml; sistemler, PID, MATLAB, Simulink, PLC, STM32, &#304;stanbul Teknik &Uuml;niversitesi">
+<meta name="author" content="Deniz Meral">
+<meta name="viewport" content="width=960">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="stylesheet" type="text/css" href="/src/classic/classic.css">
+</head>
+<body>
+
+<div id="wrapper">
+
+<div id="masthead">
+  <h1><a href="/tr/index.html">Deniz Meral</a></h1>
+  <div class="tagline">Kontrol ve Otomasyon M&uuml;hendisli&#287;i &mdash; elektronik, g&ouml;m&uuml;l&uuml; sistemler ve uygulamal&#305; kontrol</div>
+  <div class="lang-switch">
+    <a href="/projects.html" hreflang="en" title="View this page in English">ENG</a><span class="sep">|</span><strong>T&Uuml;R</strong>
+  </div>
+  <div class="contact-strip">
+    &#304;stanbul Teknik &Uuml;niversitesi<br>
+    <a href="mailto:deniztunameral@gmail.com">deniztunameral@gmail.com</a>
+  </div>
+</div>
+
+<div id="navbar">
+  <ul>
+    <li><a href="/tr/index.html">Anasayfa</a></li>
+    <li><a href="/tr/about.html">Hakk&#305;mda</a></li>
+    <li><a href="/tr/skills.html">Yetkinlikler</a></li>
+    <li><a href="/tr/projects.html" class="current">Projeler</a></li>
+    <li><a href="/tr/experience.html">Deneyim</a></li>
+    <li><a href="/tr/contact.html">&#304;leti&#351;im</a></li>
+  </ul>
+  <div class="clearer"></div>
+</div>
+
+<div id="breadcrumb">Buradas&#305;n&#305;z: <a href="/tr/index.html">Anasayfa</a> &raquo; Projeler</div>
+
+<div id="container">
+<div id="content">
+
+<h2>Proje Ar&#351;ivi</h2>
+
+<p>
+  A&#351;a&#287;&#305;daki kay&#305;tlar en yeniden ba&#351;layarak s&#305;ralanm&#305;&#351;t&#305;r. Kaynak kodu a&ccedil;&#305;k olan
+  projelerde depo ba&#287;lant&#305;s&#305; verilmi&#351;tir. &#304;T&Uuml; AUV Tak&#305;m&#305; ile y&uuml;r&uuml;t&uuml;len projeler ekip
+  &ccedil;al&#305;&#351;mas&#305;d&#305;r; kendi katk&#305;m her birinde ayr&#305;ca belirtilmi&#351;tir.
+</p>
+
+<div class="entry">
+  <h3>Su Alt&#305; Poz Kestirimi i&ccedil;in Sentetik Veri &Uuml;rete&ccedil;i</h3>
+  <div class="meta">2025&ndash;2026 &nbsp;|&nbsp; &#304;T&Uuml; AUV Tak&#305;m&#305; &nbsp;|&nbsp; Alg&#305;lama ve benzetim</div>
+  <p>
+    Tak&#305;m&#305;n otonom su alt&#305; arac&#305; i&ccedil;in ger&ccedil;ek&ccedil;i ve otomatik etiketlenmi&#351; e&#287;itim
+    g&ouml;r&uuml;nt&uuml;leri &uuml;reten bir sentetik veri hatt&#305;. Ger&ccedil;ek su alt&#305; g&ouml;r&uuml;nt&uuml;s&uuml; toplamak
+    pahal&#305;d&#305;r ve alt&#305; serbestlik dereceli poz i&ccedil;in do&#287;ru etiketlemek neredeyse olanaks&#305;zd&#305;r;
+    bu nedenle sahneler, &#305;&#351;&#305;k, bulan&#305;kl&#305;k ve nesne yerle&#351;imi &uuml;retilir ve ger&ccedil;ek referans
+    do&#287;rudan benzetimden al&#305;n&#305;r.
+  </p>
+  <p>
+    &Uuml;rete&ccedil;, <acronym title="Deep Object Pose Estimation">DOPE</acronym> i&ccedil;in poz etiketlerinin
+    yan&#305; s&#305;ra &ouml;rnek ve anlamsal b&ouml;l&uuml;tleme maskeleri de &ccedil;&#305;kar&#305;r. B&ouml;ylece ara&ccedil; hem yar&#305;&#351;ma
+    hedeflerini tan&#305;yabilir hem de bunlar&#305;n g&ouml;vdeye g&ouml;re nerede oldu&#287;unu kestirebilir &mdash; ki
+    bu, g&uuml;d&uuml;m ve kontrol katman&#305;n&#305;n ihtiya&ccedil; duydu&#287;u girdidir.
+  </p>
+  <p><strong>Katk&#305;m:</strong> sahne &uuml;retimi ve etiket d&#305;&#351;a aktarma hatt&#305;n&#305; ve benzetim
+    &ccedil;&#305;kt&#305;s&#305;n&#305; e&#287;itime haz&#305;r veri k&uuml;melerine d&ouml;n&uuml;&#351;t&uuml;ren Python ara&ccedil;lar&#305;n&#305; geli&#351;tirdim.</p>
+  <div class="keywords">
+    <strong>Anahtar kelimeler:</strong> bilgisayarl&#305; g&ouml;r&uuml;, poz kestirimi, benzetim, Python,
+    derin &ouml;&#287;renme, otonom ara&ccedil;lar &nbsp;|&nbsp;
+    <a href="https://github.com/DennyEZ/UE5_SyntheticDataGen" rel="noopener">Kaynak kodu</a>
+  </div>
+</div>
+
+<div class="entry">
+  <h3>Otonom Su Alt&#305; Arac&#305; &mdash; Yaz&#305;l&#305;m Alt Tak&#305;m&#305;</h3>
+  <div class="meta">2024&ndash;devam ediyor &nbsp;|&nbsp; &#304;T&Uuml; AUV Tak&#305;m&#305; &nbsp;|&nbsp; Robotik, ROS</div>
+  <p>
+    Uluslararas&#305; robotik yar&#305;&#351;malar&#305;na kat&#305;lan otonom bir su alt&#305; arac&#305;n&#305;n yaz&#305;l&#305;m
+    y&#305;&#287;&#305;n&#305;n&#305;n s&uuml;regelen geli&#351;tirilmesi. Ara&ccedil;, su alt&#305;ndaki hedefleri operat&ouml;r girdisi
+    olmadan, g&uuml;venilir bir telsiz ba&#287;lant&#305;s&#305; ve uydu konumlamas&#305; bulunmadan bulmak,
+    yakla&#351;mak ve onlarla etkile&#351;mek zorundad&#305;r; bu da t&uuml;m y&uuml;k&uuml; ara&ccedil; &uuml;st&uuml;ndeki alg&#305;lama,
+    kestirim ve kontrole b&#305;rak&#305;r.
+  </p>
+  <p>
+    &Ccedil;al&#305;&#351;ma, bozulmu&#351; su alt&#305; g&ouml;r&uuml;nt&uuml;s&uuml;nde nesne tespiti i&ccedil;in alg&#305;lama hatlar&#305;n&#305;,
+    bu hatt&#305;n ROS alt&#305;nda seyir d&uuml;&#287;&uuml;mleriyle b&uuml;t&uuml;nle&#351;tirilmesini ve davran&#305;&#351;lar&#305;n havuza
+    inmeden &ouml;nce benzetimde s&#305;nanmas&#305;n&#305; kaps&#305;yor. &Ccedil;aban&#305;n b&uuml;y&uuml;k b&ouml;l&uuml;m&uuml; b&uuml;t&uuml;nle&#351;tirme:
+    alg&#305;lay&#305;c&#305; ve iticiler i&ccedil;in elektrik alt tak&#305;m&#305;yla, &#351;asi geometrisi ve kald&#305;rma kuvveti
+    i&ccedil;in makine alt tak&#305;m&#305;yla aray&uuml;zlerin kararla&#351;t&#305;r&#305;lmas&#305;.
+  </p>
+  <div class="keywords">
+    <strong>Anahtar kelimeler:</strong> ROS, Python, C++, OpenCV, bilgisayarl&#305; g&ouml;r&uuml;,
+    alg&#305;lay&#305;c&#305; b&uuml;t&uuml;nle&#351;tirme, otonom seyir &nbsp;|&nbsp;
+    <a href="https://github.com/itu-auv" rel="noopener">Tak&#305;m depolar&#305;</a>
+  </div>
+</div>
+
+<div class="entry">
+  <h3>Bulut Kaynak Otomasyon Arac&#305;</h3>
+  <div class="meta">2025 &nbsp;|&nbsp; Ki&#351;isel proje &nbsp;|&nbsp; Otomasyon ve izleme</div>
+  <p>
+    &Ccedil;al&#305;&#351;an sunucular&#305;n envanterini &ccedil;&#305;karan, kullan&#305;m ve maliyeti tan&#305;ml&#305; b&uuml;t&ccedil;e
+    e&#351;ikleriyle kar&#351;&#305;la&#351;t&#305;ran ve belirlenen s&#305;n&#305;r&#305;n &uuml;zerinde bo&#351;ta kalan kaynaklar&#305;
+    kapatan, Python ile yaz&#305;lm&#305;&#351; bir izleme ve otomasyon arac&#305;. Yap&#305; olarak bir g&ouml;zetleyici
+    kontrol problemidir: &ouml;l&ccedil;, referansla kar&#351;&#305;la&#351;t&#305;r, d&uuml;zeltici etki uygula ve raporla.
+  </p>
+  <p>
+    E&#351;i&#287;in yak&#305;n&#305;ndaki sunucular&#305;n s&uuml;rekli a&ccedil;&#305;l&#305;p kapanmamas&#305; i&ccedil;in bir &ccedil;evrim
+    (histerezis) kural&#305; uygular, her &ccedil;al&#305;&#351;mada tasarruf raporu &uuml;retir ve her ana bilgisayarda
+    ayn&#305; &#351;ekilde &ccedil;al&#305;&#351;mas&#305; i&ccedil;in bir kapsay&#305;c&#305; i&ccedil;inde paketlenir.
+  </p>
+  <div class="keywords">
+    <strong>Anahtar kelimeler:</strong> Python, Docker, otomasyon, izleme, e&#351;ik mant&#305;&#287;&#305;,
+    raporlama &nbsp;|&nbsp;
+    <a href="https://github.com/DennyEZ/cloud-automation-study" rel="noopener">Kaynak kodu</a>
+  </div>
+</div>
+
+<div class="entry">
+  <h3>Otomatik Derleme ve Da&#287;&#305;t&#305;m Hatt&#305;</h3>
+  <div class="meta">2025 &nbsp;|&nbsp; Ki&#351;isel proje &nbsp;|&nbsp; Ara&ccedil; zinciri otomasyonu</div>
+  <p>
+    Projeyi kaynaktan derleyen, ara derleme &ccedil;&#305;kt&#305;lar&#305;n&#305; &ouml;nbelle&#287;e alan ve ana dala her
+    de&#287;i&#351;iklikte sonucu elle m&uuml;dahale olmadan yay&#305;na alan bir s&uuml;rekli b&uuml;t&uuml;nle&#351;tirme hatt&#305;.
+    Ayn&#305; disiplin g&ouml;m&uuml;l&uuml; &ccedil;al&#305;&#351;maya do&#287;rudan uygulan&#305;r: bilinen bir s&uuml;r&uuml;mden, bir makine
+    taraf&#305;ndan yinelenebilir bi&ccedil;imde derlenen bir donan&#305;m yaz&#305;l&#305;m&#305;na sahada g&uuml;venmek,
+    birinin diz&uuml;st&uuml; bilgisayar&#305;nda derlenmi&#351; olana g&uuml;venmekten &ccedil;ok daha kolayd&#305;r.
+  </p>
+  <div class="keywords">
+    <strong>Anahtar kelimeler:</strong> s&uuml;rekli b&uuml;t&uuml;nle&#351;tirme, derleme otomasyonu,
+    &ouml;nbellekleme, yinelenebilir derleme &nbsp;|&nbsp;
+    <a href="https://github.com/DennyEZ/3matchGame" rel="noopener">Kaynak kodu</a>
+  </div>
+</div>
+
+<div class="entry">
+  <h3>Kontrol Sistemleri Dersleri ve Laboratuvar &Ccedil;al&#305;&#351;mas&#305;</h3>
+  <div class="meta">S&uuml;r&uuml;yor &nbsp;|&nbsp; &#304;stanbul Teknik &Uuml;niversitesi</div>
+  <p>
+    Modelleme ve kontrol &uuml;zerine s&uuml;regelen &uuml;niversite &ccedil;al&#305;&#351;mas&#305;: elektromekanik sistemler
+    i&ccedil;in model &ccedil;&#305;karmak, a&#351;&#305;m, yerle&#351;me zaman&#305; ve kal&#305;c&#305; durum hatas&#305; ko&#351;ullar&#305;na g&ouml;re
+    denetleyici tasarlamak ve bunlar&#305; bir mikrodenetleyicide ayr&#305;k zamanl&#305; kar&#351;&#305;l&#305;&#287;&#305;yla
+    ger&ccedil;eklemeden &ouml;nce Simulink'te do&#287;rulamak. Laboratuvar oturumlar&#305; analog ve say&#305;sal devre
+    kurulumunu, &ouml;l&ccedil;&uuml;m uygulamas&#305;n&#305; ve alg&#305;lay&#305;c&#305; i&#351;aretlerinin enstr&uuml;mantasyonunu kaps&#305;yor.
+  </p>
+  <div class="keywords">
+    <strong>Anahtar kelimeler:</strong> MATLAB, Simulink, PID, durum uzay&#305;, transfer fonksiyonlar&#305;,
+    laboratuvar &ouml;l&ccedil;&uuml;m&uuml;
+  </div>
+</div>
+
+<hr>
+
+<p style="font-size: 10px; color: #777777; text-align: left;">
+  Etkile&#351;imli yaz&#305;l&#305;m ve oyun geli&#351;tirme &ccedil;al&#305;&#351;malar&#305;m ayr&#305; bir portfolyoda belgelenmi&#351;tir.
+  Bu sitenin m&uuml;hendisli&#287;e odakl&#305; kalmas&#305; i&ccedil;in burada bilin&ccedil;li olarak listelenmemi&#351;tir.
+</p>
+
+</div>
+<div id="sidebar">
+
+  <div class="photo-frame">
+    <img src="/images/profile.png" alt="Deniz Meral portresi">
+    <div class="caption">Deniz Meral, &#304;stanbul</div>
+  </div>
+
+  <div class="box">
+    <h3>K&#305;sa Bilgiler</h3>
+    <div class="box-body">
+      <dl class="facts">
+        <dt class="first">B&ouml;l&uuml;m</dt>
+        <dd>Kontrol ve Otomasyon M&uuml;hendisli&#287;i</dd>
+        <dt>&Uuml;niversite</dt>
+        <dd>&#304;stanbul Teknik &Uuml;niversitesi</dd>
+        <dt>&Ccedil;al&#305;&#351;ma Alanlar&#305;</dt>
+        <dd>Kontrol sistemleri, g&ouml;m&uuml;l&uuml; elektronik, end&uuml;striyel otomasyon</dd>
+        <dt>Tak&#305;m</dt>
+        <dd>&#304;T&Uuml; AUV &mdash; yaz&#305;l&#305;m alt tak&#305;m&#305;</dd>
+        <dt>Durum</dt>
+        <dd>M&uuml;hendislik STAJI ar&#305;yorum</dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="box">
+    <h3>Site Haritas&#305;</h3>
+    <div class="box-body">
+      <ul class="linklist">
+        <li><a href="/tr/about.html">Hakk&#305;mda</a></li>
+        <li><a href="/tr/skills.html">Yetkinlikler</a></li>
+        <li><a href="/tr/projects.html">Proje ar&#351;ivi</a></li>
+        <li><a href="/tr/experience.html">Deneyim ve e&#287;itim</a></li>
+        <li class="last"><a href="/tr/contact.html">&#304;leti&#351;im formu</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="box">
+    <h3>Di&#287;er Ba&#287;lant&#305;lar</h3>
+    <div class="box-body">
+      <ul class="linklist">
+        <li><a href="https://github.com/DennyEZ" rel="noopener">GitHub &ndash; DennyEZ</a></li>
+        <li><a href="https://www.linkedin.com/in/denizmeral/" rel="noopener">LinkedIn profili</a></li>
+        <li class="last"><a href="https://github.com/itu-auv" rel="noopener">&#304;T&Uuml; AUV Tak&#305;m&#305;</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="box">
+    <h3>Kulland&#305;&#287;&#305;m Ara&ccedil;lar</h3>
+    <div class="box-body">
+      <p class="mono">
+        MATLAB / Simulink<br>
+        LTspice &middot; KiCad<br>
+        STM32 &middot; AVR &middot; ESP32<br>
+        G&ouml;m&uuml;l&uuml; C &middot; Python<br>
+        Merdiven diyagram&#305; &middot; SCADA<br>
+        ROS &middot; Linux
+      </p>
+    </div>
+  </div>
+
+</div>
+  <div class="clearer"></div>
+</div><!-- /container -->
+
+<div id="footer">
+  <p class="right">
+    <a class="badge" href="#top">Yukar&#305; d&ouml;n</a>
+    <span class="badge">Valid XHTML 1.0</span>
+    <span class="badge">Valid CSS</span>
+  </p>
+  <p>&copy; 2026 Deniz Meral &mdash; Kontrol ve Otomasyon M&uuml;hendisli&#287;i, &#304;stanbul Teknik &Uuml;niversitesi.</p>
+  <p>Son g&uuml;ncelleme: <span id="lastUpdated">28 A&#287;ustos 2026</span> &nbsp;|&nbsp; En iyi 1024&times;768 ve &uuml;zeri &ccedil;&ouml;z&uuml;n&uuml;rl&uuml;kte g&ouml;r&uuml;nt&uuml;lenir &nbsp;|&nbsp; Elle yaz&#305;lm&#305;&#351; HTML ve CSS, framework kullan&#305;lmam&#305;&#351;t&#305;r.</p>
+</div>
+
+</div><!-- /wrapper -->
+
+<script type="text/javascript" src="/js/classic.js"></script>
+</body>
+</html>

@@ -25,14 +25,21 @@ and about a hundred lines of plain JavaScript.
 
 ## Pages
 
-| File | Contents |
-|---|---|
-| `index.html` | Welcome, areas of work, recent updates |
-| `about.html` | Background, approach to engineering problems, languages |
-| `skills.html` | Rated skill tables: control, electronics, embedded/automation, tools |
-| `projects.html` | Project archive with contributions and repository links |
-| `experience.html` | Education and team experience |
-| `contact.html` | Contact details and a `mailto:` form |
+English lives at the root and is the default; Turkish is a full parallel copy
+under `tr/`. Each page carries an `ENG | TUR` switch in the masthead that links
+to its counterpart, so the visitor stays on the same page when changing language.
+
+| File | `tr/` counterpart | Contents |
+|---|---|---|
+| `index.html` | Anasayfa | Welcome, areas of work, recent updates |
+| `about.html` | Hakkimda | Background, approach to engineering problems, languages |
+| `skills.html` | Yetkinlikler | Rated skill tables: control, electronics, embedded/automation, tools |
+| `projects.html` | Projeler | Project archive with contributions and repository links |
+| `experience.html` | Deneyim | Education and team experience |
+| `contact.html` | Iletisim | Contact details and a `mailto:` form |
+
+Turkish characters are written as HTML entities so every file stays plain ASCII
+and cannot be corrupted by an editor guessing the wrong encoding.
 
 ## Assets
 
@@ -44,7 +51,8 @@ public/images/            Photograph and other static images
 
 `classic.js` handles current-tab highlighting, table striping, the footer's
 last-updated date, and validation of the contact form before it is handed to the
-visitor's mail program.
+visitor's mail program. Its two user-facing strings and its month names are
+translated; it picks the language from the `lang` attribute on `<html>`.
 
 ## Development
 
@@ -56,13 +64,18 @@ npm run preview # serve the production build
 ```
 
 Each page is registered as a separate Rollup input in `vite.config.js`; adding a
-page means adding both the HTML file and an entry there.
+page means adding the HTML file, its `tr/` counterpart, and an entry for each.
+
+Note that Vite resolves every `<link href>` as a build asset, `rel="alternate"`
+included, which produces hashed duplicate pages. The language switch is therefore
+plain `<a hreflang>` anchors, which Vite leaves alone.
 
 ## Editing content
 
 All content lives directly in the HTML files — there is no data layer to edit.
 The masthead, navigation, sidebar and footer blocks are repeated verbatim in each
-page, so a change to any of them needs to be applied across all six.
+page, so a change to any of them needs to be applied across all twelve, and any
+content edit needs making in both languages.
 
 ## License
 

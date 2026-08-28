@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Hakk&#305;mda :: Deniz Meral - Kontrol ve Otomasyon M&uuml;hendisli&#287;i</title>
+<meta name="description" content="Deniz Meral'in &ouml;zge&ccedil;mi&#351;i, m&uuml;hendislik ilgi alanlar&#305; ve &ccedil;al&#305;&#351;ma y&ouml;ntemi.">
+<meta name="keywords" content="Deniz Meral, kontrol m&uuml;hendisli&#287;i, otomasyon, elektronik, g&ouml;m&uuml;l&uuml; sistemler, PID, MATLAB, Simulink, PLC, STM32, &#304;stanbul Teknik &Uuml;niversitesi">
+<meta name="author" content="Deniz Meral">
+<meta name="viewport" content="width=960">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="stylesheet" type="text/css" href="/src/classic/classic.css">
+</head>
+<body>
+
+<div id="wrapper">
+
+<div id="masthead">
+  <h1><a href="/tr/index.html">Deniz Meral</a></h1>
+  <div class="tagline">Kontrol ve Otomasyon M&uuml;hendisli&#287;i &mdash; elektronik, g&ouml;m&uuml;l&uuml; sistemler ve uygulamal&#305; kontrol</div>
+  <div class="lang-switch">
+    <a href="/about.html" hreflang="en" title="View this page in English">ENG</a><span class="sep">|</span><strong>T&Uuml;R</strong>
+  </div>
+  <div class="contact-strip">
+    &#304;stanbul Teknik &Uuml;niversitesi<br>
+    <a href="mailto:deniztunameral@gmail.com">deniztunameral@gmail.com</a>
+  </div>
+</div>
+
+<div id="navbar">
+  <ul>
+    <li><a href="/tr/index.html">Anasayfa</a></li>
+    <li><a href="/tr/about.html" class="current">Hakk&#305;mda</a></li>
+    <li><a href="/tr/skills.html">Yetkinlikler</a></li>
+    <li><a href="/tr/projects.html">Projeler</a></li>
+    <li><a href="/tr/experience.html">Deneyim</a></li>
+    <li><a href="/tr/contact.html">&#304;leti&#351;im</a></li>
+  </ul>
+  <div class="clearer"></div>
+</div>
+
+<div id="breadcrumb">Buradas&#305;n&#305;z: <a href="/tr/index.html">Anasayfa</a> &raquo; Hakk&#305;mda</div>
+
+<div id="container">
+<div id="content">
+
+<h2>Hakk&#305;mda</h2>
+
+<p>
+  &#304;stanbul Teknik &Uuml;niversitesi Kontrol ve Otomasyon M&uuml;hendisli&#287;i b&ouml;l&uuml;m&uuml;nde lisans
+  &ouml;&#287;rencisiyim. Bu alana donan&#305;m taraf&#305;ndan geldim: motorlar&#305; ve g&uuml;&ccedil; kaynaklar&#305;n&#305;,
+  onlar&#305; anlatan diferansiyel denklemleri yazabilmemden &ccedil;ok &ouml;nce s&ouml;k&uuml;p takarak. Bu s&#305;ra
+  o zamandan beri &ccedil;al&#305;&#351;ma bi&ccedil;imimi belirledi. Bir modeli en &ccedil;ok, tezgahla ne kadar
+  uyu&#351;mad&#305;&#287;&#305;n&#305; &ouml;l&ccedil;ebildi&#287;imde severim.
+</p>
+
+<h3>Neler &Uuml;zerine &Ccedil;al&#305;&#351;&#305;yorum</h3>
+
+<p>
+  Zaman&#305;m&#305;n b&uuml;y&uuml;k k&#305;sm&#305; birbiriyle ili&#351;kili &uuml;&ccedil; i&#351;e gidiyor. Birincisi
+  <strong>kontrol</strong>: sistem modeli kurmak, denetleyici tasarlamak ve ard&#305;ndan bunu,
+  s&#305;n&#305;rl&#305; &ouml;rnekleme h&#305;z&#305;na sahip bir mikrodenetleyicide ayakta kalacak &#351;ekilde
+  ayr&#305;kla&#351;t&#305;rmak. &#304;kincisi <strong>elektronik</strong>: denetleyici ile fiziksel d&uuml;nya
+  aras&#305;nda duran y&uuml;kselte&ccedil;, s&uuml;zge&ccedil;, s&uuml;r&uuml;c&uuml; ve koruma devreleri &mdash; projelerin
+  &ccedil;o&#287;u asl&#305;nda tam burada ba&#351;ar&#305;s&#305;z olur. &Uuml;&ccedil;&uuml;nc&uuml;s&uuml; <strong>yaz&#305;l&#305;m</strong>:
+  C dilinde g&ouml;m&uuml;l&uuml; kod, Python ve MATLAB ile analiz ve ara&ccedil; geli&#351;tirme, ROS alt&#305;nda
+  robotik ara katman&#305;.
+</p>
+
+<h3>Bir Probleme Nas&#305;l Yakla&#351;&#305;r&#305;m</h3>
+
+<ol class="numbers">
+  <li><strong>&Ouml;nce model, ama ucuzundan.</strong> D&uuml;r&uuml;st bir belirsizlik aral&#305;&#287;&#305; olan birinci
+      mertebeden bir yakla&#351;&#305;m, ba&#351;lang&#305;&ccedil;ta, kimsenin do&#287;rulamad&#305;&#287;&#305; katalog de&#287;erleriyle
+      kurulmu&#351; ayr&#305;nt&#305;l&#305; bir modelden daha de&#287;erlidir.</li>
+  <li><strong>Enerji vermeden &ouml;nce benzetim.</strong> Simulink ve LTspice i&ccedil;inde yan&#305;lmak bedava.
+      Yanm&#305;&#351; s&uuml;r&uuml;c&uuml;ler ve e&#287;ilmi&#351; miller de&#287;il.</li>
+  <li><strong>Her &#351;eyi &ouml;l&ccedil;&uuml;n.</strong> Bir d&ouml;ng&uuml; donan&#305;mda beklenmedik davran&#305;yorsa, cevap
+      zaten kay&#305;tlarda olmal&#305;: her &ccedil;evrimde referans, &ouml;l&ccedil;&uuml;m, kontrol i&#351;areti ve zamanlama.</li>
+  <li><strong>G&uuml;venli ba&#351;ar&#305;s&#305;zl&#305;k.</strong> Bek&ccedil;i zamanlay&#305;c&#305;lar&#305;, ak&#305;m s&#305;n&#305;rlar&#305;, u&ccedil;
+      anahtarlar&#305; ve makul bir a&ccedil;&#305;l&#305;&#351; durumu tasar&#305;m&#305;n par&ccedil;as&#305;d&#305;r; ilk kazadan sonra
+      eklenen &#351;eyler de&#287;il.</li>
+  <li><strong>Yaz&#305;l&#305; b&#305;rak&#305;n.</strong> &#350;emalar, ayar parametreleri ve deney ko&#351;ullar&#305; kodla
+      birlikte s&uuml;r&uuml;m kontrol&uuml;nde durmal&#305;d&#305;r.</li>
+</ol>
+
+<h3>Ders D&#305;&#351;&#305;</h3>
+
+<p>
+  2024'ten bu yana, uluslararas&#305; robotik yar&#305;&#351;malar&#305; i&ccedil;in otonom bir su alt&#305; arac&#305;
+  tasarlay&#305;p &uuml;reten <a href="https://github.com/itu-auv" rel="noopener">&#304;T&Uuml; AUV Tak&#305;m&#305;</a>'n&#305;n
+  yaz&#305;l&#305;m alt tak&#305;m&#305;nday&#305;m. Su alt&#305; al&#305;&#351;&#305;lmad&#305;k derecede d&uuml;r&uuml;st bir &ouml;&#287;retmendir:
+  alg&#305;lay&#305;c&#305;lar kayar, haberle&#351;me zay&#305;ft&#305;r, kald&#305;rma kuvveti ve s&uuml;r&uuml;klenme eksenleri
+  birbirine ba&#287;lar ve g&ouml;vde kapand&#305;ktan sonra hi&ccedil;bir &#351;ey etkile&#351;imli olarak ay&#305;klanamaz.
+  Bana g&uuml;rb&uuml;zl&uuml;k hakk&#305;nda ve makine ile elektrik alt tak&#305;mlar&#305;yla b&uuml;t&uuml;nle&#351;me hakk&#305;nda
+  tek ba&#351;&#305;na hi&ccedil;bir dersin &ouml;&#287;retemeyece&#287;i kadar &ccedil;ok &#351;ey &ouml;&#287;retti.
+</p>
+
+<p>
+  Oyun geli&#351;tirme ve etkile&#351;imli yaz&#305;l&#305;m &ccedil;al&#305;&#351;malar&#305;m i&ccedil;in ayr&#305; bir portfolyo
+  s&uuml;r&uuml;yorum. &#304;kisinin ard&#305;ndaki m&uuml;hendislik disiplini ayn&#305; &mdash; durum makineleri,
+  ger&ccedil;ek zamanl&#305; d&ouml;ng&uuml;ler, say&#305;sal kararl&#305;l&#305;k ve ba&#351;ar&#305;m b&uuml;t&ccedil;eleri &mdash; ancak
+  hedef kitle farkl&#305; oldu&#287;u i&ccedil;in ikisi ayr&#305; tutuluyor.
+</p>
+
+<h3>Diller</h3>
+
+<table class="data">
+  <tr><th style="width: 150px;">Dil</th><th>Seviye</th></tr>
+  <tr><td>T&uuml;rk&ccedil;e</td><td>Anadil</td></tr>
+  <tr class="alt"><td>&#304;ngilizce</td><td>Mesleki d&uuml;zeyde &mdash; teknik okuma, yazma ve sunum</td></tr>
+</table>
+
+</div>
+<div id="sidebar">
+
+  <div class="photo-frame">
+    <img src="/images/profile.png" alt="Deniz Meral portresi">
+    <div class="caption">Deniz Meral, &#304;stanbul</div>
+  </div>
+
+  <div class="box">
+    <h3>K&#305;sa Bilgiler</h3>
+    <div class="box-body">
+      <dl class="facts">
+        <dt class="first">B&ouml;l&uuml;m</dt>
+        <dd>Kontrol ve Otomasyon M&uuml;hendisli&#287;i</dd>
+        <dt>&Uuml;niversite</dt>
+        <dd>&#304;stanbul Teknik &Uuml;niversitesi</dd>
+        <dt>&Ccedil;al&#305;&#351;ma Alanlar&#305;</dt>
+        <dd>Kontrol sistemleri, g&ouml;m&uuml;l&uuml; elektronik, end&uuml;striyel otomasyon</dd>
+        <dt>Tak&#305;m</dt>
+        <dd>&#304;T&Uuml; AUV &mdash; yaz&#305;l&#305;m alt tak&#305;m&#305;</dd>
+        <dt>Durum</dt>
+        <dd>M&uuml;hendislik STAJI ar&#305;yorum</dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="box">
+    <h3>Site Haritas&#305;</h3>
+    <div class="box-body">
+      <ul class="linklist">
+        <li><a href="/tr/about.html">Hakk&#305;mda</a></li>
+        <li><a href="/tr/skills.html">Yetkinlikler</a></li>
+        <li><a href="/tr/projects.html">Proje ar&#351;ivi</a></li>
+        <li><a href="/tr/experience.html">Deneyim ve e&#287;itim</a></li>
+        <li class="last"><a href="/tr/contact.html">&#304;leti&#351;im formu</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="box">
+    <h3>Di&#287;er Ba&#287;lant&#305;lar</h3>
+    <div class="box-body">
+      <ul class="linklist">
+        <li><a href="https://github.com/DennyEZ" rel="noopener">GitHub &ndash; DennyEZ</a></li>
+        <li><a href="https://www.linkedin.com/in/denizmeral/" rel="noopener">LinkedIn profili</a></li>
+        <li class="last"><a href="https://github.com/itu-auv" rel="noopener">&#304;T&Uuml; AUV Tak&#305;m&#305;</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="box">
+    <h3>Kulland&#305;&#287;&#305;m Ara&ccedil;lar</h3>
+    <div class="box-body">
+      <p class="mono">
+        MATLAB / Simulink<br>
+        LTspice &middot; KiCad<br>
+        STM32 &middot; AVR &middot; ESP32<br>
+        G&ouml;m&uuml;l&uuml; C &middot; Python<br>
+        Merdiven diyagram&#305; &middot; SCADA<br>
+        ROS &middot; Linux
+      </p>
+    </div>
+  </div>
+
+</div>
+  <div class="clearer"></div>
+</div><!-- /container -->
+
+<div id="footer">
+  <p class="right">
+    <a class="badge" href="#top">Yukar&#305; d&ouml;n</a>
+    <span class="badge">Valid XHTML 1.0</span>
+    <span class="badge">Valid CSS</span>
+  </p>
+  <p>&copy; 2026 Deniz Meral &mdash; Kontrol ve Otomasyon M&uuml;hendisli&#287;i, &#304;stanbul Teknik &Uuml;niversitesi.</p>
+  <p>Son g&uuml;ncelleme: <span id="lastUpdated">28 A&#287;ustos 2026</span> &nbsp;|&nbsp; En iyi 1024&times;768 ve &uuml;zeri &ccedil;&ouml;z&uuml;n&uuml;rl&uuml;kte g&ouml;r&uuml;nt&uuml;lenir &nbsp;|&nbsp; Elle yaz&#305;lm&#305;&#351; HTML ve CSS, framework kullan&#305;lmam&#305;&#351;t&#305;r.</p>
+</div>
+
+</div><!-- /wrapper -->
+
+<script type="text/javascript" src="/js/classic.js"></script>
+</body>
+</html>
