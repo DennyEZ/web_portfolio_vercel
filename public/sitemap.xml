@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://deniztm.me/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deniztm.me/index.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://deniztm.me/tr/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deniztm.me/index.html"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://deniztm.me/tr/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deniztm.me/index.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://deniztm.me/tr/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deniztm.me/index.html"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://deniztm.me/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deniztm.me/about.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://deniztm.me/tr/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deniztm.me/about.html"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://deniztm.me/tr/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deniztm.me/about.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://deniztm.me/tr/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deniztm.me/about.html"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://deniztm.me/skills.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deniztm.me/skills.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://deniztm.me/tr/skills.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deniztm.me/skills.html"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://deniztm.me/tr/skills.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deniztm.me/skills.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://deniztm.me/tr/skills.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deniztm.me/skills.html"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://deniztm.me/projects.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deniztm.me/projects.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://deniztm.me/tr/projects.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deniztm.me/projects.html"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://deniztm.me/tr/projects.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deniztm.me/projects.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://deniztm.me/tr/projects.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deniztm.me/projects.html"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://deniztm.me/experience.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deniztm.me/experience.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://deniztm.me/tr/experience.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deniztm.me/experience.html"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://deniztm.me/tr/experience.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deniztm.me/experience.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://deniztm.me/tr/experience.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deniztm.me/experience.html"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://deniztm.me/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deniztm.me/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://deniztm.me/tr/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deniztm.me/contact.html"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://deniztm.me/tr/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deniztm.me/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://deniztm.me/tr/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deniztm.me/contact.html"/>
+    <changefreq>monthly</changefreq>
+  </url>
+</urlset>

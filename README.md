@@ -66,9 +66,19 @@ npm run preview # serve the production build
 Each page is registered as a separate Rollup input in `vite.config.js`; adding a
 page means adding the HTML file, its `tr/` counterpart, and an entry for each.
 
-Note that Vite resolves every `<link href>` as a build asset, `rel="alternate"`
-included, which produces hashed duplicate pages. The language switch is therefore
-plain `<a hreflang>` anchors, which Vite leaves alone.
+Note that Vite resolves every *relative* `<link href>` as a build asset,
+`rel="alternate"` included, which produces hashed duplicate pages. The `canonical`
+and `hreflang` tags therefore use **absolute** URLs — Vite treats those as external
+and passes them through untouched. If the site ever moves off `deniztm.me`, those
+URLs, `public/sitemap.xml` and `public/robots.txt` all need updating.
+
+## Search engines
+
+Each language has its own indexable URL. Every page declares a `canonical` for
+itself and `hreflang` alternates for both languages plus `x-default` (English), so
+crawlers treat the two versions as translations of one page rather than duplicates.
+`public/sitemap.xml` repeats the same annotations and is advertised in
+`public/robots.txt`.
 
 ## Editing content
 
